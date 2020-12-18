@@ -25,9 +25,7 @@ public class ListOfStyles : MonoBehaviour
         foreach (StylesChange style in Styles.Stili)
         {
             style.Initialize();
-
         }
-        Styles.Default.bought = true;
     }
     public static void LoadBoughtStyles()
     {
