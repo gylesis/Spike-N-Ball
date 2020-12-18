@@ -6,30 +6,21 @@ using UnityEngine.EventSystems;
 
 public class Joystick : MonoBehaviour
 {
-    public static Joystick Instance { get; private set; }
-
-    [SerializeField] [Range(0.0f, 1.0f)] public float transparency;
-    [SerializeField] [Range(0.0f, 1.0f)] float fadeRate;
-    private Image imageOfJoyStick;
-    private Image imageOfStick;
-    private Transform Stick;
-    private bool isFade;
+    public static Joystick Instance;
     public bool OnIcon;
-    private Color color;
-
+   
+    [SerializeField]
+    private GameObject tapPrefab;
   
-
-    public bool isEnabled = true;
-
     public void JoystickSwitch()
     {
 
-        PlayerPrefs.SetInt("JoystickSwitch", isEnabled ? 1 : 0);
+       /* PlayerPrefs.SetInt("JoystickSwitch", isEnabled ? 1 : 0);
 
         isEnabled = PlayerPrefs.GetInt("JoystickSwitch") == 1 ? true : false;
         isEnabled = !isEnabled;
 
-        PlayerPrefs.Save();
+        PlayerPrefs.Save();*/
     }
 
 
@@ -37,19 +28,19 @@ public class Joystick : MonoBehaviour
 
     private void Start()
     {
-        Instance = this;
-        imageOfJoyStick = GetComponent<Image>();
-        Stick = transform.GetChild(0);
-        imageOfStick = transform.GetChild(0).GetComponent<Image>();
-        color = Color.white;
-        color.a = transparency;
+        Instance = this;    
     }
     
 
     private void Update()
     {
-        if (isEnabled && !MenuScript.Instance.GameIsPaused && !OnIcon)
+        if (Input.GetMouseButtonDown(0)) {
+            Instantiate(tapPrefab, Input.mousePosition, Quaternion.identity);
+        }
+
+        /*if (isEnabled && !MenuScript.Instance.GameIsPaused && !OnIcon)
         {
+
             if (Input.GetMouseButtonDown(0))
             {
                 transform.position = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0);
@@ -71,7 +62,7 @@ public class Joystick : MonoBehaviour
                 color.a -= fadeRate * transparency;
                 imageOfJoyStick.color = color;
             }
-        }
+        }*/
     }
 
     
