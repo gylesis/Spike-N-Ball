@@ -33,9 +33,12 @@ using UnityEngine.TextCore;
         if (Input.GetKeyDown(KeyCode.D))
         {
             print("Deleting data...");
+            foreach (var gg in Achievements.achievements) {
+                Debug.Log(gg.Achieved = false);
+            }
             PlayerPrefs.DeleteAll();
         }
-     
+
         HighScoreCount();
 
         CrystalCount.text = CrystallCount.ToString();
@@ -50,7 +53,9 @@ using UnityEngine.TextCore;
 
         CurrentHighScore = PlayerPrefs.GetInt("CurrentHighScore", 0);      
         HighScoreCounter.text = "HIGHSCORE: " + CurrentHighScore;
+
         
+
     }
    
     void AnimOfCrystallText()
