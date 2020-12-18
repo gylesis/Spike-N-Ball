@@ -105,13 +105,13 @@ public class Achievement
 
 public static class Achievements
 {
-    public static readonly Achievement timeBronze = new Achievement(stats.TimeSpend, 5, "It looks like you liked it", "Play game during 10 minutes", ListOfTextures.Instance.Images[0],300);
-    public static readonly Achievement timeSilver = new Achievement(stats.TimeSpend, 30, "Still here?", "Play game during 1 hour", ListOfTextures.Instance.Images[1],1500);
-    public static readonly Achievement timeGold = new Achievement(stats.TimeSpend, 50, "Seriously?", "Play game during 5 hours", ListOfTextures.Instance.Images[2],2000);
+    public static readonly Achievement timeBronze = new Achievement(stats.TimeSpend, 300, "It looks like you liked it", "Play game during 5 minutes", ListOfTextures.Instance.Images[0],300);
+    public static readonly Achievement timeSilver = new Achievement(stats.TimeSpend, 3600, "Still here?", "Play game during 1 hour", ListOfTextures.Instance.Images[1],1500);
+    public static readonly Achievement timeGold = new Achievement(stats.TimeSpend, 10800, "Seriously?", "Play game during 3 hours", ListOfTextures.Instance.Images[2],2000);
 
     public static readonly Achievement CrystalBronze = new Achievement(stats.Crystals, 100, "Initial Capital", "Collect 100 crystals overall", ListOfTextures.Instance.Images[6],50);
     public static readonly Achievement CrystalSilver = new Achievement(stats.Crystals, 1000, "Crystal Fever", "Collect 1000 crystals overall", ListOfTextures.Instance.Images[7],150);
-    public static readonly Achievement CrystalGold = new Achievement(stats.Crystals, 3000, "Rich B**ch", "Collect 5000 crystals overall", ListOfTextures.Instance.Images[8],400);
+    public static readonly Achievement CrystalGold = new Achievement(stats.Crystals, 3000, "Rich B**ch", "Collect 3000 crystals overall", ListOfTextures.Instance.Images[8],400);
 
     public static readonly Achievement MetresBronze = new Achievement(stats.Metres, 1000, "First Steps", "Overcome 1000 meters overall", ListOfTextures.Instance.Images[3],100);
     public static readonly Achievement MetresSilver = new Achievement(stats.Metres, 5000, "Next Steps", "Overcome 5000 meters overall", ListOfTextures.Instance.Images[4],500);

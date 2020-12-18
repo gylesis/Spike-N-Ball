@@ -3,14 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
- public enum stats
- {
-     Metres, Jumps, Crystals, Attempts, TimeSpend, 
-     MetresPerRun, CrystalsPerRun, TimePerRun
- }
+public enum stats {
+    Metres, Jumps, Crystals, Attempts, TimeSpend,
+    MetresPerRun, CrystalsPerRun, TimePerRun
+}
 
-public class Stats : MonoBehaviour
-{
+public class Stats : MonoBehaviour {
     public static Stats Instance { private set; get; }
     private int _metres;
     private int _jumps;
@@ -22,64 +20,51 @@ public class Stats : MonoBehaviour
     private float _timePerRun;
     private int _crystalsPerRun;
 
-    private void Start()
-    {
+    private void Start() {
         Instance = this;
         InitializeStats();
-        foreach (Achievement achievement in Achievements.achievements)
-        {
+        foreach (Achievement achievement in Achievements.achievements) {
             achievement.Initialize();
         }
     }
 
-    void InitializeStats()
-    {
+    void InitializeStats() {
         _metres = PlayerPrefs.GetInt("metres", 0);
         _jumps = PlayerPrefs.GetInt("jumps", 0);
         _crystals = PlayerPrefs.GetInt("crystals", 0);
         _attempts = PlayerPrefs.GetInt("attempts", 0);
         _timeSpend = PlayerPrefs.GetFloat("timeSpend", 0);
-         _timePerRun = 0;
-         _crystalsPerRun = 0;
+        _timePerRun = 0;
+        _crystalsPerRun = 0;
     }
 
-    public void AddMetres(int metres)
-    {
+    public void AddMetres(int metres) {
         _metres += metres;
     }
-    public void AddJumps(int jumps)
-    {
+    public void AddJumps(int jumps) {
         _jumps += jumps;
     }
-    public void AddCrystals(int crystals)
-    {
+    public void AddCrystals(int crystals) {
         _crystals += crystals;
     }
-    public void AddAttempts(int attempts)
-    {
+    public void AddAttempts(int attempts) {
         _attempts += attempts;
     }
-    public void AddTimeSpend(float timeSpend)
-    {
+    public void AddTimeSpend(float timeSpend) {
         _timeSpend += timeSpend;
         _timePerRun += timeSpend;
     }
-    public void TimePerRunZero()
-    {
+    public void TimePerRunZero() {
         _timePerRun = 0;
     }
-    public void CrystalsPerRunEqualTo (int crystalsPerRun)
-    {
+    public void CrystalsPerRunEqualTo(int crystalsPerRun) {
         _crystalsPerRun = crystalsPerRun;
     }
-    public void MetresPerRunEqualTo(int MetresPerRun)
-    {
+    public void MetresPerRunEqualTo(int MetresPerRun) {
         _metresPerRun = MetresPerRun;
     }
-    public float GetStat(stats stat)
-    {
-        switch (stat)
-        {
+    public float GetStat(stats stat) {
+        switch (stat) {
             case stats.Attempts:
                 return _attempts;
             case stats.Crystals:
@@ -94,8 +79,7 @@ public class Stats : MonoBehaviour
         return 404;
     }
 
-    public void SaveStats()
-    {
+    public void SaveStats() {
         PlayerPrefs.SetInt("metres", _metres);
         PlayerPrefs.SetInt("jumps", _jumps);
         PlayerPrefs.SetInt("crystals", _crystals);
@@ -103,10 +87,8 @@ public class Stats : MonoBehaviour
         PlayerPrefs.SetFloat("timeSpend", _timeSpend);
     }
 
-    private void Update()
-    {
-        foreach (Achievement achievement in Achievements.achievements)
-        {
+    private void Update() {
+        foreach (Achievement achievement in Achievements.achievements) {
             achievement.Check();
         }
     }

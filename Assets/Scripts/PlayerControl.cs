@@ -174,9 +174,9 @@ public class PlayerControl : MonoBehaviour
         Stats.Instance.AddAttempts(1);
         Stats.Instance.SaveStats();
         Stats.Instance.TimePerRunZero();
-        deathCount++;
-        Debug.Log(deathCount);
-        Advertisements.ShowAd(deathCount);
+      //  deathCount++;
+       // Debug.Log(deathCount);
+       // Advertisements.ShowAd(deathCount);
         foreach (Achievement achievment in Achievements.achievements)
         {
             achievment.SaveAchievement();
@@ -184,7 +184,7 @@ public class PlayerControl : MonoBehaviour
 
         PlayerPrefs.Save();
 
-        Advertisements.ShowAd(deathCount);
+       // Advertisements.ShowAd(deathCount);
     }
     bool CheckGround()
     {
