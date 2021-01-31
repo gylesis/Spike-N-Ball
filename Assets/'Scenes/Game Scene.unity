@@ -14383,6 +14383,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OnIcon: 0
   tapPrefab: {fileID: 0}
+  camera: {fileID: 0}
 --- !u!212 &1450136237
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -20582,6 +20583,7 @@ MonoBehaviour:
   OnIcon: 0
   tapPrefab: {fileID: 5843479068426710699, guid: eb35fdfb3b3a00b44b2ab4317aec9653,
     type: 3}
+  camera: {fileID: 963194227}
 --- !u!1001 &1574475406
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21910,6 +21912,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OnIcon: 0
   tapPrefab: {fileID: 0}
+  camera: {fileID: 0}
 --- !u!114 &1658456037
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class PatricleChoose : MonoBehaviour
 {
-    ParticleSystemRenderer PSR;
     [SerializeField]
+    ParticleSystemRenderer PSR;
 
     private void Start()
     {
-        if (transform.GetChild(0).GetComponent<ParticleSystemRenderer>() != null)
+        if (transform.GetChild(0).TryGetComponent<ParticleSystemRenderer>(out var particleSystem))
         {
-            PSR = transform.GetChild(0).GetComponent<ParticleSystemRenderer>();
+            PSR = particleSystem;
         }
 
         if (Styles.Stili[PlayerPrefs.GetInt("currentSkin", 3)].Particles != null)

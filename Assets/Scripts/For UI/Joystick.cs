@@ -4,39 +4,49 @@ using UnityEngine.UI;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Joystick : MonoBehaviour
-{
+public class Joystick : MonoBehaviour {
     public static Joystick Instance;
     public bool OnIcon;
-   
+
     [SerializeField]
     private GameObject tapPrefab;
-  
-    public void JoystickSwitch()
-    {
 
-       /* PlayerPrefs.SetInt("JoystickSwitch", isEnabled ? 1 : 0);
+    [SerializeField]
+    Camera camera;
 
-        isEnabled = PlayerPrefs.GetInt("JoystickSwitch") == 1 ? true : false;
-        isEnabled = !isEnabled;
+    TapPrefab tap;
 
-        PlayerPrefs.Save();*/
+    public void JoystickSwitch() {
+
+        /* PlayerPrefs.SetInt("JoystickSwitch", isEnabled ? 1 : 0);
+
+         isEnabled = PlayerPrefs.GetInt("JoystickSwitch") == 1 ? true : false;
+         isEnabled = !isEnabled;
+
+         PlayerPrefs.Save();*/
     }
 
 
 
 
-    private void Start()
-    {
-        Instance = this;    
+    private void Start() {
+        Instance = this;
     }
-    
 
-    private void Update()
-    {
+
+    private void Update() {
         if (Input.GetMouseButtonDown(0)) {
-            Instantiate(tapPrefab, Input.mousePosition, Quaternion.identity);
+           
+            Ray ray = camera.ScreenPointToRay(Input.mousePosition);
+
+            if (Physics.Raycast(ray, out var hit)) {
+                tap = Instantiate(tapPrefab, hit.point, Quaternion.identity).GetComponent<TapPrefab>();
+            }
         }
+        if (Input.GetMouseButtonUp(0)) {
+            tap.FadeCoroutine();
+        }
+
 
         /*if (isEnabled && !MenuScript.Instance.GameIsPaused && !OnIcon)
         {
@@ -65,5 +75,5 @@ public class Joystick : MonoBehaviour
         }*/
     }
 
-    
+
 }
