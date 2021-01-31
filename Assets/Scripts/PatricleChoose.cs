@@ -9,17 +9,13 @@ public class PatricleChoose : MonoBehaviour
 
     private void Start()
     {
-        if (transform.GetChild(0).TryGetComponent<ParticleSystemRenderer>(out var particleSystem))
-        {
-            PSR = particleSystem;
-        }
-
+       
         if (Styles.Stili[PlayerPrefs.GetInt("currentSkin", 3)].Particles != null)
         {
             PSR.enabled = true;
             PSR.material = ListOfStyles.CurrentParticles;
         }
-        else PSR.enabled = false;
+       // else PSR.enabled = false;
 
 
     }
@@ -29,16 +25,17 @@ public class PatricleChoose : MonoBehaviour
     {
         if (PSR != null)
         {
-            if (PSR.material != ListOfStyles.CurrentParticles && ListOfStyles.CurrentParticles != null)
-            {
+          //  if (PSR.material != ListOfStyles.CurrentParticles )
+          //  {
                 PSR.enabled = true;
                 PSR.material = ListOfStyles.CurrentParticles;
                 
-            }
-            else if(ListOfStyles.CurrentParticles == null)
-            {
-                PSR.enabled = false;
-            }
+          //  }
+          //  else if(ListOfStyles.CurrentParticles == null)
+          //  {
+        //        Debug.Log("Hi");
+         //       PSR.enabled = false;
+         //   }
         }
     }
 }
