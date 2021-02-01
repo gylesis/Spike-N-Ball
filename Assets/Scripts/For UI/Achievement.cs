@@ -28,7 +28,7 @@ public class Achievement
     private bool accordingToTime;
     private bool isInitialized;
     public bool moneyAwarded;
-    private int awardAmount;
+    public int awardAmount;
     private Sprite sprite;
 
     public Achievement(stats _stat, int _thresholdValue, string _header, string _text, Sprite _sprite, int _awardAmount)
@@ -95,7 +95,7 @@ public class Achievement
     }
     public void GetAward()
     {
-        Debug.Log(Money.Instance.money);
+      //  Debug.Log(Money.Instance.money);
         Money.Instance.money += awardAmount;
         moneyAwarded = true;
         SaveAchievement("Только сохрани эти самые ну ты понял");
@@ -105,7 +105,7 @@ public class Achievement
 
 public static class Achievements
 {
-    public static readonly Achievement timeBronze = new Achievement(stats.TimeSpend, 300, "It looks like you liked it", "Play game during 5 minutes", ListOfTextures.Instance.Images[0],300);
+    public static readonly Achievement timeBronze = new Achievement(stats.TimeSpend, 600, "It looks like you liked it", "Play game during 10 minutes", ListOfTextures.Instance.Images[0],300);
     public static readonly Achievement timeSilver = new Achievement(stats.TimeSpend, 3600, "Still here?", "Play game during 1 hour", ListOfTextures.Instance.Images[1],1500);
     public static readonly Achievement timeGold = new Achievement(stats.TimeSpend, 10800, "Seriously?", "Play game during 3 hours", ListOfTextures.Instance.Images[2],2000);
 

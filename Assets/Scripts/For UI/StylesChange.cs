@@ -29,62 +29,59 @@ public class StylesChange : MonoBehaviour {
     }
     public void Initialize() {
         bought = PlayerPrefs.GetInt(name, 0) == 1 ? true : false;
+        isChoosen = PlayerPrefs.GetInt(name + "1", 0) == 1 ? true : false;
 
-       /* if (PlayerPrefs.GetInt(name + "1") == 1) {
-            isChoosen = true;
+        if (isChoosen) {
             ListOfStyles.CurrentParticles = Particles;
         }
-        else {
-            isChoosen = false;
-        }*/
-
-        Debug.Log(name + " " + bought);
-
     }
     public void SaveStyle() {
         PlayerPrefs.SetInt(name, bought ? 1 : 0);
     }
 
     public IEnumerator ChangeStyle() {
-        Debug.Log("sstart");
         if (bought) {
             ListOfStyles.Instance.CurrentMaterialForBg.color = Bg.color;
             ListOfStyles.Instance.CurrentMaterialForWalls.color = Walls.color;
             ListOfStyles.Instance.CurrentMaterialForSpikes.color = Spikes.color;
             ListOfStyles.CurrentParticles = Particles;
-           // isChoosen = true;
-           // Debug.Log(name + " " + isChoosen);
-            //    PlayerPrefs.SetInt(name + "1", 1);
 
-          //  foreach (var style in Styles.Stili) {
-          //      Debug.Log(style.name + " " + isChoosen);
-          //  }
-
-
-            /* for (int i = 0; i < Styles.Stili.Count - 1; i++) {
-                 if (Styles.Stili[i].Particles == Particles) {
-                     PlayerPrefs.SetInt(name + "1", 1);
-                 }
-                 else {
-                     PlayerPrefs.SetInt(name + "1", 0);
-                 }
-             }*/
-         //   PlayerPrefs.Save();
+            foreach (var style in Styles.Stili) {
+                if (style.name == name) {
+                    style.isChoosen = true;                   
+                }
+                else {
+                    style.isChoosen = false;
+                }
+            }
 
         }
         else {
             if (Money.Instance.money >= cost) {
                 Debug.Log("Hvatilo");
+
                 yield return ConfirmationToBuy.Instance.FalseOrTrue();
                 if (ConfirmationToBuy.Instance.answer == 1) {
                     Debug.Log("Kupil");
+
                     ConfirmationToBuy.Instance.answer = 3;
                     Money.Instance.MoneyCounter.text = Money.Instance.money.ToString();
                     Money.Instance.money -= cost;
                     PlayerPrefs.SetInt("CrystallsScore", Money.Instance.money);
+
                     bought = true;
                     SaveStyle();
                     GameObject.Find(name).transform.GetChild(2).gameObject.SetActive(false);
+
+                    foreach (var style in Styles.Stili) {
+                        if (style.name == name) {
+                            style.isChoosen = true;                        
+                        }
+                        else {
+                            style.isChoosen = false;
+                        }
+                    }
+
                 }
                 else ConfirmationToBuy.Instance.answer = 3;
             }
@@ -94,12 +91,22 @@ public class StylesChange : MonoBehaviour {
                 MenuScript.Instance.StartCarutine();
             }
         }
+        
 
+     
+        foreach (var style in Styles.Stili) {
+            PlayerPrefs.SetInt(style.name + "1", style.isChoosen ? 1 : 0);          
+        }
 
+        PlayerPrefs.Save();
     }
 
 
+
 }
+
+
+
 
 public static class Styles {
     public static StylesChange Field = new StylesChange(ListOfStyles.Instance.ListOfMaterials[9], ListOfStyles.Instance.ListOfMaterials[10], ListOfStyles.Instance.ListOfMaterials[11], "Field", 500);

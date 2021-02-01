@@ -34,7 +34,7 @@ public class ListOfStyles : MonoBehaviour
             if (style.bought)
             {
                 GameObject obj = GameObject.Find(style.name);
-                Debug.Log("POshel nahui " + style.name);
+             //   Debug.Log("POshel nahui " + style.name);
                 obj.transform.GetChild(2).gameObject.SetActive(false);
             }
         }

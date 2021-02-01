@@ -34,7 +34,7 @@ using UnityEngine.TextCore;
         {
             print("Deleting data...");
             foreach (var gg in Achievements.achievements) {
-                Debug.Log(gg.Achieved = false);
+                gg.Achieved = false;
             }
             PlayerPrefs.DeleteAll();
         }

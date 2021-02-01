@@ -10,15 +10,12 @@ public class ListingOfStyleMaterials : MonoBehaviour, IPointerDownHandler {
 
     public void OnPointerDown(PointerEventData eventData) {
         _styleNameToSwitch = eventData.pointerCurrentRaycast.gameObject.name;
+
         foreach (StylesChange style in Styles.Stili) {
             if (style.name == name) {
-               // style.isChoosen = true;
                 print(style.name);
                 StartCoroutine(style.ChangeStyle());
 
-            }
-            else {
-              //  style.isChoosen = false;
             }
 
         }
