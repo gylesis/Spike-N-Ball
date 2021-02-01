@@ -47,7 +47,7 @@ public class PlayerControl : MonoBehaviour
    
     private void FixedUpdate()
     {
-        if (EnviromentAct.Instance.GameIsStarted && Input.GetMouseButtonDown(0) && !MenuScript.Instance.GameIsPaused);
+        if (EnviromentAct.Instance.GameIsStarted && Input.GetMouseButtonDown(0) && !MenuScript.GameIsPaused);
         {
             CountVel();
             ChangeArrow();
@@ -161,6 +161,7 @@ public class PlayerControl : MonoBehaviour
 
     public void Death()
     {
+        MenuScript.GameIsPaused = true;
         BoolOnDeath = true;
         BoolOnDeath2 = true;
 
@@ -204,7 +205,7 @@ public class PlayerControl : MonoBehaviour
 
     private void ChangeArrow()
     {
-        if (Input.GetKey(KeyCode.Mouse0) && CheckGround() && !MenuScript.Instance.GameIsPaused)
+        if (Input.GetKey(KeyCode.Mouse0) && CheckGround() && !MenuScript.GameIsPaused)
         {
             if (direction.y >= 0)
             {
@@ -226,7 +227,7 @@ public class PlayerControl : MonoBehaviour
     
     void CountVel()
     {
-        if (!MenuScript.Instance.GameIsPaused )
+        if (!MenuScript.GameIsPaused )
         {
             if (Input.GetMouseButtonDown(0))
             {
@@ -237,7 +238,7 @@ public class PlayerControl : MonoBehaviour
             if (Input.GetMouseButton(0))
             {
                 Vector2 CurrentPos = Input.mousePosition;
-                direction = StartPos - CurrentPos;
+                direction = CurrentPos - StartPos;
                 direction.Normalize();
                 if (direction.magnitude > 0 && ArrowSize <= 250)
                 {

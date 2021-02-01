@@ -42,8 +42,8 @@ public class MusicControl : MonoBehaviour
     }
     void Update()
     {
-        if (MenuScript.Instance.GameIsPaused) VolumingDown();
-        else if (!MenuScript.Instance.GameIsPaused && EnviromentAct.Instance.GameIsStarted) VolumingUp();
+        if (MenuScript.GameIsPaused) VolumingDown();
+        else if (!MenuScript.GameIsPaused && EnviromentAct.Instance.GameIsStarted) VolumingUp();
 
         if (PlayerControl.Instance.BoolOnDeath2) VolumingDownDeath(); 
     }

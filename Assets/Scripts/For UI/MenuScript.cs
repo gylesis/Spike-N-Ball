@@ -9,8 +9,8 @@ public class MenuScript : MonoBehaviour
 {
     public static MenuScript Instance { get; private set; }
 
-    public bool GameIsPaused = false;
-    public bool GameIsStarted = false;
+    public static bool GameIsPaused = false;
+    public static bool GameIsStarted = false;
 
     [SerializeField] GameObject PauseMenuUI;
     [SerializeField] GameObject pauseButton;
@@ -39,6 +39,11 @@ public class MenuScript : MonoBehaviour
         PlayerObject.GetComponent<Rigidbody>().isKinematic = !_bool;
         PlayerObject.GetComponent<PlayerControl>().enabled = _bool;
     }
+
+    private void OnEnable() {
+        GameIsPaused = false;
+    }
+
     void Start()
     {
         Instance = this;

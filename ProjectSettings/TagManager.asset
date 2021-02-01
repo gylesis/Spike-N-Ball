@@ -16,6 +16,7 @@ TagManager:
   - Start
   - Pause
   - ImageInAchiev
+  - NonJoystickable
   layers:
   - Default
   - TransparentFX

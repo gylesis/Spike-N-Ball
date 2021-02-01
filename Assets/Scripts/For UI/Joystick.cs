@@ -16,37 +16,53 @@ public class Joystick : MonoBehaviour {
 
     TapPrefab tap;
 
-    public void JoystickSwitch() {
-
-        /* PlayerPrefs.SetInt("JoystickSwitch", isEnabled ? 1 : 0);
-
-         isEnabled = PlayerPrefs.GetInt("JoystickSwitch") == 1 ? true : false;
-         isEnabled = !isEnabled;
-
-         PlayerPrefs.Save();*/
-    }
-
-
-
+    bool isOn;
 
     private void Start() {
         Instance = this;
     }
 
+    private void OnEnable() {
+        isOn = PlayerPrefs.GetInt("JoystickState") == 1 ? true : false;
+    }
+
+    public void SwitchState() {
+        isOn = !isOn;
+        PlayerPrefs.SetInt("JoystickState", isOn ? 1 : 0);
+        PlayerPrefs.Save();
+    }
+
 
     private void Update() {
         if (Input.GetMouseButtonDown(0)) {
-           
+            if (!isOn) {
+                return;
+            }
+
+            if (MenuScript.GameIsPaused) {
+                return;
+            }
+
             Ray ray = camera.ScreenPointToRay(Input.mousePosition);
 
             if (Physics.Raycast(ray, out var hit)) {
-                tap = Instantiate(tapPrefab, hit.point, Quaternion.identity).GetComponent<TapPrefab>();
+
+                if (hit.collider.tag == "NonJoystickable") {
+                    return;
+                }
+
+
+                Debug.Log(hit.collider);
+                tap = Instantiate(tapPrefab, hit.point, Quaternion.identity, transform).GetComponent<TapPrefab>();
             }
+
         }
         if (Input.GetMouseButtonUp(0)) {
-            tap.FadeCoroutine();
+            if (tap != null) {
+                tap.FadeCoroutine();
+            }
         }
-     
+
     }
 
 
