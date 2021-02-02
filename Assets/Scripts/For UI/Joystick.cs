@@ -51,8 +51,6 @@ public class Joystick : MonoBehaviour {
                     return;
                 }
 
-
-                Debug.Log(hit.collider);
                 tap = Instantiate(tapPrefab, hit.point, Quaternion.identity, transform).GetComponent<TapPrefab>();
             }
 
