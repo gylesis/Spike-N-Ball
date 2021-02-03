@@ -26105,7 +26105,7 @@ MonoBehaviour:
   - {fileID: 5004852692836113125, guid: ab1cd534aebf79a4687cdbc2d44a327a, type: 3}
   - {fileID: 3238372375653381941, guid: dac7a373036b3ca4781c4b98bfc761d6, type: 3}
   - {fileID: 6157647955065654693, guid: 353a72d8c72aaf14cb5f66b067153542, type: 3}
-  patternsToSpawn: 10000000
+  patternsToSpawn: 
   PatternsOnScene: []
 --- !u!114 &1930803453
 MonoBehaviour:

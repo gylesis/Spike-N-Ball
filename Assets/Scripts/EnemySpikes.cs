@@ -45,7 +45,7 @@ public class EnemySpikes : Enemy {
 
         bool over = false;
         Debug.Log("Attack");
-        var nextPoz = enemyPrefab.transform.position + new Vector3(transform.localScale.x * -0.45f, 0, 0);
+        var nextPoz = enemyPrefab.transform.position + new Vector3(transform.root.localScale.x * transform.localScale.x * -0.45f, 0, 0);
 
         var temp = enemyPrefab.transform.localScale;
         deathCollider.SetActive(true);
@@ -73,7 +73,7 @@ public class EnemySpikes : Enemy {
 
     private void Start() {
         startPos = enemyPrefab.transform.position;
-        nextPos = startPos + new Vector3(transform.localScale.x * distanceToSneak, 0, 0);
+        nextPos = startPos + new Vector3(transform.root.localScale.x * transform.localScale.x * distanceToSneak, 0, 0);
     }
 
     private void OnDrawGizmos() {
@@ -121,7 +121,6 @@ public class EnemySpikes : Enemy {
     }
 
     void SneakIn() {
-        nextPos = new Vector3(nextPos.x , nextPos.y, nextPos.z);
         enemyPrefab.transform.position = Vector3.Lerp(enemyPrefab.transform.position, nextPos, sneakSpeed);
     }
     void SneakOut() {
