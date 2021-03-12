@@ -4,16 +4,13 @@ using UnityEngine;
 
 public class EnemySpikes : Enemy {
 
-    [SerializeField]
-    float timer;
-
     bool inZone;
-
-    [SerializeField]
-    GameObject enemyPrefab;
 
     Vector3 startPos;
     Vector3 nextPos;
+
+    [SerializeField]
+    float timer;
 
     [SerializeField]
     float sneakSpeed;
@@ -24,12 +21,21 @@ public class EnemySpikes : Enemy {
     [SerializeField]
     float distanceToNextPos;
 
+    [SerializeField]
+    float dashSpeed;
+
     bool allowToAttack = true;
 
     bool attackIsOver = true;
 
     [SerializeField]
     GameObject deathCollider;
+
+    [SerializeField]
+    GameObject enemyPrefab;
+
+    [SerializeField]
+    Vector3 foraw;
 
     public void SetColor() {
 
@@ -45,14 +51,15 @@ public class EnemySpikes : Enemy {
 
         bool over = false;
         Debug.Log("Attack");
-        var nextPoz = enemyPrefab.transform.position + new Vector3(transform.root.localScale.x * transform.localScale.x * -0.45f, 0, 0);
+        var nextPoz = enemyPrefab.transform.position + new Vector3(transform.root.localScale.x * enemyPrefab.transform.right.x * -0.45f,
+            transform.root.localScale.x * -enemyPrefab.transform.right.y / 5, 0);
 
         var temp = enemyPrefab.transform.localScale;
         deathCollider.SetActive(true);
 
         while (!over) {
 
-            temp = temp * 1.3f;
+            temp = temp * dashSpeed;
             enemyPrefab.transform.localScale = temp;
             enemyPrefab.transform.position = Vector3.Lerp(enemyPrefab.transform.position, nextPoz, 0.5f);
 
@@ -73,15 +80,13 @@ public class EnemySpikes : Enemy {
 
     private void Start() {
         startPos = enemyPrefab.transform.position;
-        nextPos = startPos + new Vector3(transform.root.localScale.x * transform.localScale.x * distanceToSneak, 0, 0);
-    }
-
-    private void OnDrawGizmos() {
-        Gizmos.DrawWireSphere(nextPos, 0.1f);
-        Gizmos.DrawWireSphere(enemyPrefab.transform.position, 0.3f);
+        nextPos = startPos + new Vector3(transform.root.localScale.x * enemyPrefab.transform.right.normalized.x * distanceToSneak, transform.root.localScale.x * -enemyPrefab.transform.right.normalized.y / 5, 0);
     }
 
     private void Update() {
+        //  foraw = startPos + new Vector3(enemyPrefab.transform.right.normalized.x * transform.root.localScale.x * distanceToSneak, -enemyPrefab.transform.right.normalized.y, 0);
+
+        foraw = startPos + new Vector3(enemyPrefab.transform.right.normalized.x * distanceToSneak, -enemyPrefab.transform.right.normalized.y / 5, 0);
         distanceToNextPos = Vector3.Distance(enemyPrefab.transform.position, nextPos);
 
         if (!inZone) {
@@ -97,6 +102,12 @@ public class EnemySpikes : Enemy {
             SneakIn();
         }
 
+    }
+
+    private void OnDrawGizmosSelected() {
+        var tem = enemyPrefab.transform.position + new Vector3(transform.root.localScale.x * enemyPrefab.transform.right.x * -0.45f,
+            -(transform.root.localScale.x/ transform.root.localScale.x) * -enemyPrefab.transform.right.y / 5, 0);
+        Gizmos.DrawWireSphere(tem, 0.1f);
     }
 
 

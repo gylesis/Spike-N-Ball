@@ -28,8 +28,10 @@ public class CameraControl : MonoBehaviour
         float scoreCoef = score.ScoreCount() / 800f;
         transform.Translate(0, (Speed + scoreCoef) * Time.deltaTime, 0);
 
-        if (transform.position.y - player.position.y < -2.5)
-            Speed = (player.position.y - transform.position.y)/10;
+        float distanceFromCamera = transform.position.y - player.position.y;
+
+        if (distanceFromCamera < -1)
+            Speed = Mathf.Max(Mathf.Pow(distanceFromCamera, 2) / 10, 0.2f);
         else
             Speed = 0.2f;
         

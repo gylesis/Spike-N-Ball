@@ -6,18 +6,23 @@ public class MusicControl : MonoBehaviour
 {
     public static MusicControl Instance { get; private set; }
 
+    [SerializeField]
     AudioLowPassFilter LowPass;
+
+    [SerializeField]
     AudioSource MainTheme;
+
     float Volume;
     float LowPassFilterVolume;
-    [SerializeField] [Range(0, 1)] float ModifierVolume;
-    [SerializeField] [Range(30, 100)] float ModifierLowPasFilter;
+    [SerializeField] [Range(0, 1)] float modifierVolume;
+    [SerializeField] [Range(30, 100)] float modifierLowPasFilter;
+
+    [SerializeField]
+    float lowestVolumePoint;
 
     void Start()
     {
-        Instance = this;
-        MainTheme = gameObject.GetComponent<AudioSource>();   
-        LowPass = GetComponent<AudioLowPassFilter>();
+        Instance = this;       
         Volume = MainTheme.volume;
         LowPassFilterVolume = LowPass.cutoffFrequency;
     }
@@ -27,17 +32,17 @@ public class MusicControl : MonoBehaviour
     }
     public void VolumingDownDeath()
     {
-        if (MainTheme.volume > 0) MainTheme.volume -= ModifierVolume;
+        if (MainTheme.volume > 0) MainTheme.volume -= modifierVolume;
     }
     public void VolumingDown()
     {
-        if (MainTheme.volume > 0.005) MainTheme.volume -= ModifierVolume ;
-        if (LowPass.cutoffFrequency > 750) LowPass.cutoffFrequency -= ModifierLowPasFilter;
+        if (MainTheme.volume > lowestVolumePoint) MainTheme.volume -= modifierVolume;
+        if (LowPass.cutoffFrequency > 750) LowPass.cutoffFrequency -= modifierLowPasFilter;
     }
     public void VolumingUp()
     {
-        if (MainTheme.volume < Volume) MainTheme.volume += ModifierVolume ;
-        if (LowPass.cutoffFrequency < LowPassFilterVolume) LowPass.cutoffFrequency += ModifierLowPasFilter;
+        if (MainTheme.volume < Volume) MainTheme.volume += modifierVolume;
+        if (LowPass.cutoffFrequency < LowPassFilterVolume) LowPass.cutoffFrequency += modifierLowPasFilter;
 
     }
     void Update()

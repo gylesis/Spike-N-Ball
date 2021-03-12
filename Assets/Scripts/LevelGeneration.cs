@@ -16,7 +16,7 @@ public class LevelGeneration : MonoBehaviour
     int localIndex;
     int index;
 
-    private void Awake()
+    private void Start()
     {
         Instance = this;
         if (patternsToSpawn.Length != 0)

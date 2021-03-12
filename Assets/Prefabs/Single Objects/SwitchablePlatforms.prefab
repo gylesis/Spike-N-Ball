@@ -65,7 +65,7 @@ PrefabInstance:
     - target: {fileID: 175857414821298704, guid: 7b29cc9c09c826142a4989ea1de24cc8,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.75
       objectReference: {fileID: 0}
     - target: {fileID: 175857414821298704, guid: 7b29cc9c09c826142a4989ea1de24cc8,
         type: 3}
@@ -127,6 +127,12 @@ PrefabInstance:
       propertyPath: m_TagString
       value: SwitchablePlatform
       objectReference: {fileID: 0}
+    - target: {fileID: 3962795328052952444, guid: 7b29cc9c09c826142a4989ea1de24cc8,
+        type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000,
+        type: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b29cc9c09c826142a4989ea1de24cc8, type: 3}
 --- !u!4 &4426593135094991923 stripped
@@ -155,7 +161,7 @@ PrefabInstance:
     - target: {fileID: 175857414821298704, guid: 7b29cc9c09c826142a4989ea1de24cc8,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.75
       objectReference: {fileID: 0}
     - target: {fileID: 175857414821298704, guid: 7b29cc9c09c826142a4989ea1de24cc8,
         type: 3}
@@ -222,6 +228,12 @@ PrefabInstance:
       propertyPath: m_TagString
       value: SwitchablePlatform
       objectReference: {fileID: 0}
+    - target: {fileID: 3962795328052952444, guid: 7b29cc9c09c826142a4989ea1de24cc8,
+        type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000,
+        type: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b29cc9c09c826142a4989ea1de24cc8, type: 3}
 --- !u!4 &6031800587944425053 stripped
