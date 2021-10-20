@@ -1,17 +1,18 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class ChangeSkin : MonoBehaviour
+namespace For_Unique_Objects
 {
-    [SerializeField] Texture[] ListOfTextures;
-    [SerializeField] int IndexOfCurrentTexture;
-
-    public void ChangingSkin(int _IndexOfCurrentTexture)
+    public class ChangeSkin : MonoBehaviour
     {
-        IndexOfCurrentTexture = _IndexOfCurrentTexture;
-    }
+        [SerializeField] Texture[] ListOfTextures;
+        [SerializeField] int IndexOfCurrentTexture;
+
+        public void ChangingSkin(int _IndexOfCurrentTexture)
+        {
+            IndexOfCurrentTexture = _IndexOfCurrentTexture;
+        }
 
    
 
+    }
 }

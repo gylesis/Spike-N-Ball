@@ -1,30 +1,31 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
+﻿using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
-public class ChangeStyle : MonoBehaviour,IPointerClickHandler
-{    
-    public int Money;
-    public bool[] _isBought;
-    [SerializeField] Text MoneyCounter;
+namespace For_Unique_Objects
+{
+    public class ChangeStyle : MonoBehaviour,IPointerClickHandler
+    {    
+        public int Money;
+        public bool[] _isBought;
+        [SerializeField] Text MoneyCounter;
   
 
-    private void Awake()
-    {
-        Money = PlayerPrefs.GetInt("CrystallsScore", 0);
-    }
-    void Update()
-    {
-        MoneyCounter.text = Money.ToString();
-    }
+        private void Awake()
+        {
+            Money = PlayerPrefs.GetInt("CrystallsScore", 0);
+        }
+        void Update()
+        {
+            MoneyCounter.text = Money.ToString();
+        }
   
 
-    public void OnPointerClick(PointerEventData eventData)
-    {
-        //eventData.pointerCurrentRaycast.gameObject.GetComponent<Material>().
-    }
+        public void OnPointerClick(PointerEventData eventData)
+        {
+            //eventData.pointerCurrentRaycast.gameObject.GetComponent<Material>().
+        }
 
     
+    }
 }

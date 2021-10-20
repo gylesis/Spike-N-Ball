@@ -1,13 +1,14 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class MoveablePlatform : MonoBehaviour
+namespace For_Unique_Objects
 {
-    public bool isStarted {private set; get; } = false;
-
-    public void StartMovement()
+    public class MoveablePlatform : MonoBehaviour
     {
-        isStarted = true;
+        public bool isStarted {private set; get; } = false;
+
+        public void StartMovement()
+        {
+            isStarted = true;
+        }
     }
 }

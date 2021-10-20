@@ -1,67 +1,68 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine.UI;
-using UnityEngine;
-using UnityEngine.EventSystems;
+﻿using UnityEngine;
 
-public class Joystick : MonoBehaviour {
-    public static Joystick Instance;
-    public bool OnIcon;
+namespace For_UI
+{
+    public class Joystick : MonoBehaviour
+    {
+        [SerializeField] private TapPrefab _tapPrefab;
+        [SerializeField] Camera _camera;
 
-    [SerializeField]
-    private GameObject tapPrefab;
+        private TapPrefab _tapInstance;
+        private bool _isOn;
+        public bool IsOn => PlayerPrefs.GetInt("JoystickState") == 1;
 
-    [SerializeField]
-    Camera camera;
+        private const string NonJoystickableTag = "NonJoystickable";
 
-    TapPrefab tap;
+        private void OnEnable()
+        {
+            _isOn = IsOn;
+        }
 
-    bool isOn;
+        public void SwitchState()
+        {
+            _isOn = !_isOn;
+            PlayerPrefs.SetInt("JoystickState", _isOn ? 1 : 0);
+            PlayerPrefs.Save();
+        }
 
-    private void Start() {
-        Instance = this;
-    }
+        private void Update()
+        {
+            if (MenuScript.GameIsPaused) return;
 
-    private void OnEnable() {
-        isOn = PlayerPrefs.GetInt("JoystickState") == 1 ? true : false;
-    }
+            if (_isOn == false) return;
+        
+            if (Input.GetMouseButtonDown(0))
+            {
+                Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
 
-    public void SwitchState() {
-        isOn = !isOn;
-        PlayerPrefs.SetInt("JoystickState", isOn ? 1 : 0);
-        PlayerPrefs.Save();
-    }
+                if (Physics.Raycast(ray, out var hit))
+                {
+                    if (hit.collider.CompareTag(NonJoystickableTag))
+                    {
+                        return;
+                    }
 
-
-    private void Update() {
-        if (Input.GetMouseButtonDown(0)) {
-            if (!isOn) {
-                return;
-            }
-
-            if (MenuScript.GameIsPaused) {
-                return;
-            }
-
-            Ray ray = camera.ScreenPointToRay(Input.mousePosition);
-
-            if (Physics.Raycast(ray, out var hit)) {
-
-                if (hit.collider.tag == "NonJoystickable") {
-                    return;
+                    _tapInstance = Instantiate(_tapPrefab, hit.point, Quaternion.identity, transform);
                 }
 
-                tap = Instantiate(tapPrefab, hit.point, Quaternion.identity, transform).GetComponent<TapPrefab>();
+            }
+        
+            if (Input.GetMouseButton(0))
+            {       
+                if(_tapInstance == null) return;
+                
+                Vector2 direction = PlayerControl.Instance.direction;
+                _tapInstance.transform.eulerAngles = direction.y >= 0 ? 
+                    new Vector3(0, 0, -Mathf.Asin(direction.x) * 180 / Mathf.PI) : 
+                    new Vector3(0, 0, 180 + Mathf.Asin(direction.x) * 180 / Mathf.PI);
             }
 
-        }
-        if (Input.GetMouseButtonUp(0)) {
-            if (tap != null) {
-                tap.FadeCoroutine();
+            if (Input.GetMouseButtonUp(0))
+            {
+                if (_tapInstance == null) return;
+
+                _tapInstance.FadeCoroutine();
             }
         }
-
     }
-
-
 }

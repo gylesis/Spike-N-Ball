@@ -1,45 +1,55 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class ListOfStyles : MonoBehaviour
+namespace For_UI
 {
-    public static ListOfStyles Instance { get; private set; }
-    public Material[] ListOfMaterials;
-    public Material[] ListOfParticles;
-
-    public Material CurrentMaterialForBg;
-    public Material CurrentMaterialForWalls;
-    public Material CurrentMaterialForSpikes;
-    public static Material CurrentParticles;
-
-   
-
-    private void Awake()
+    public class ListOfStyles : MonoBehaviour
     {
-        Instance = this;
-    }
-    private void Start()
-    {
-        foreach (StylesChange style in Styles.Stili)
+        public static ListOfStyles Instance { get; private set; }
+        public Material[] ListOfMaterials;
+        public Material[] ListOfParticles;
+
+        public Material CurrentMaterialForBg;
+        public Material CurrentMaterialForWalls;
+        public Material CurrentMaterialForSpikes;
+        public static Material CurrentParticles;
+
+        public event Action<Color> WallsColorChange;
+
+        public void ChangeMaterialColor(Color background, Color walls, Color spikes, Material particles)
         {
-            style.Initialize();
+            CurrentMaterialForBg.color = background;
+            CurrentMaterialForWalls.color = walls;
+            CurrentMaterialForSpikes.color = spikes;
+
+            WallsColorChange?.Invoke(walls);
+            CurrentParticles = particles;
         }
-    }
-    public static void LoadBoughtStyles()
-    {
-        foreach (StylesChange style in Styles.Stili)
+
+        private void Awake()
         {
-            if (style.bought)
+            Instance = this;
+        }
+
+        private void Start()
+        {
+            foreach (StylesChange style in Styles.Stili)
             {
-                GameObject obj = GameObject.Find(style.name);
-             //   Debug.Log("POshel nahui " + style.name);
-                obj.transform.GetChild(2).gameObject.SetActive(false);
+                style.Initialize();
+            }
+        }
+
+        public static void LoadBoughtStyles()
+        {
+            foreach (StylesChange style in Styles.Stili)
+            {
+                if (style.bought)
+                {
+                    GameObject obj = GameObject.Find(style.name);
+                    //   Debug.Log("POshel nahui " + style.name);
+                    obj.transform.GetChild(2).gameObject.SetActive(false);
+                }
             }
         }
     }
-    
-
-
 }

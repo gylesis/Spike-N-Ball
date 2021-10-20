@@ -59,6 +59,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -83,6 +84,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!64 &3179652495596054135
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -173,13 +175,18 @@ PrefabInstance:
     - target: {fileID: 1403555735604864556, guid: 6978bf0be3762ed458cc3875effedb68,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1403555735604864556, guid: 6978bf0be3762ed458cc3875effedb68,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 7e6656e4821162446902c190860f1f1a, type: 2}
+      objectReference: {fileID: 2100000, guid: 6d0b36a30d09cb64296e8987c9c6d354, type: 2}
+    - target: {fileID: 3975180647136149650, guid: 6978bf0be3762ed458cc3875effedb68,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3975180647136149650, guid: 6978bf0be3762ed458cc3875effedb68,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -197,6 +204,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3975180647136149650, guid: 6978bf0be3762ed458cc3875effedb68,
         type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3975180647136149650, guid: 6978bf0be3762ed458cc3875effedb68,
+        type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
@@ -208,16 +220,6 @@ PrefabInstance:
     - target: {fileID: 3975180647136149650, guid: 6978bf0be3762ed458cc3875effedb68,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3975180647136149650, guid: 6978bf0be3762ed458cc3875effedb68,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3975180647136149650, guid: 6978bf0be3762ed458cc3875effedb68,
-        type: 3}
-      propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3975180647136149650, guid: 6978bf0be3762ed458cc3875effedb68,

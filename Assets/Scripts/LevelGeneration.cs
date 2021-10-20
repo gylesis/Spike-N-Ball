@@ -1,48 +1,60 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using For_UI;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class LevelGeneration : MonoBehaviour
 {
     public static LevelGeneration Instance { get; private set; }
     [SerializeField] GameObject[] patterns;
-    [SerializeField] int[] patternsToSpawn;
+    [FormerlySerializedAs("patternsToSpawn")] [SerializeField] int[] patternsToDebug;
     private float triggerHeight = 0;
-    private float offsetBetweenPatterns = 3f;
+    private float offsetBetweenPatterns = 2.4f;
     private float PreviousPatternSize;
     public List<GameObject> PatternsOnScene = new List<GameObject>() { };
     List<int> usedNums = new List<int>() { };
     int localIndex;
     int index;
 
+    private int[] levelPool = { };
+    [SerializeField] private int[] levelElementary;
+    [SerializeField] private int[] levelIntermediate;
+    [SerializeField] private int[] levelAdvanced;
+
     private void Start()
     {
         Instance = this;
-        if (patternsToSpawn.Length != 0)
+        levelPool = levelPool.Concat(levelElementary).ToArray();
+        Score.Instance.OnScoreChange = () => { levelPool = levelPool.Concat(levelIntermediate).ToArray(); };
+        Score.Instance.OnSignificantScoreChange = () => { levelPool = levelPool.Concat(levelAdvanced).ToArray(); };
+        
+        if (patternsToDebug.Length != 0)
         {
-            SpawnPattern(GetValueOfIndexOfPatternToSpawn(patternsToSpawn));
-            SpawnPattern(GetValueOfIndexOfPatternToSpawn(patternsToSpawn));
+            SpawnPattern(GetValueOfIndexOfPatternToSpawn(patternsToDebug));
+            SpawnPattern(GetValueOfIndexOfPatternToSpawn(patternsToDebug));
         }
         else
         {
-            SpawnPattern(RandomWithoutRepeating(patterns.Length));
-            SpawnPattern(RandomWithoutRepeating(patterns.Length));
+            SpawnPattern(levelPool[RandomWithoutRepeating(levelPool.Length)] - 1);
+            SpawnPattern(levelPool[RandomWithoutRepeating(levelPool.Length)] - 1);
         }
     }
 
     void Update()
     {
         
-        if (patternsToSpawn.Length != 0 && CameraControl.Instance.transform.position.y + 4 >= triggerHeight)
+        if (patternsToDebug.Length != 0 && CameraControl.Instance.transform.position.y + 1 >= triggerHeight)
         {
-            SpawnPattern(GetValueOfIndexOfPatternToSpawn(patternsToSpawn));
+            SpawnPattern(GetValueOfIndexOfPatternToSpawn(patternsToDebug));
            
             DeleteOldPattern();
         }
-        else if (patternsToSpawn.Length == 0 && CameraControl.Instance.transform.position.y + 4 >= triggerHeight)
+        else if (patternsToDebug.Length == 0 && CameraControl.Instance.transform.position.y + 1 >= triggerHeight)
         {
-            SpawnPattern(RandomWithoutRepeating(patterns.Length));
+            SpawnPattern(levelPool[RandomWithoutRepeating(levelPool.Length)] - 1);
             
             DeleteOldPattern();
         }

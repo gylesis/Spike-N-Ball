@@ -1,28 +1,38 @@
-﻿using System.Collections;
+﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AchievementsMenu : MonoBehaviour
+namespace For_UI
 {
-    void Start()
+    public class AchievementsMenu : MonoBehaviour
     {
-        for (int i = 0; i < Achievements.achievements.Count - 1; i++)
-        {
-            GameObject Achievement = GameObject.Find("Achievment" + (i + 1));
-            Transform Image = Achievement.transform.GetChild(0);
+        private readonly List<AchievementView> _achievementViews = new List<AchievementView>();
 
-            if (Achievements.achievements[i].Achieved)
+        [SerializeField] private AchievementView _achievementViewPrefab;
+
+        private void Awake()
+        {
+            foreach (Achievement achievement in Achievements.achievements)
             {
-                Image.transform.GetChild(1).gameObject.SetActive(true);
-                if (!Achievements.achievements[i].moneyAwarded)
-                {
-                    Transform AwardButton = Achievement.transform.GetChild(4);
-                    AwardButton.gameObject.SetActive(true);
-                }
+                AchievementView achievementView = Instantiate(_achievementViewPrefab, transform);
+                achievementView.Initialize(achievement);
+                _achievementViews.Add(achievementView);
             }
-            else
+        }
+
+        private void OnEnable()
+        {
+            foreach (AchievementView achievementView in _achievementViews)
             {
-                Image.transform.GetChild(1).gameObject.SetActive(false);
+                achievementView.UpdateAchievement();
+            }
+        }
+
+        private void OnDestroy()
+        {
+            foreach (Achievement achievement in Achievements.achievements)
+            {
+                achievement.SaveAchievement();
             }
         }
     }

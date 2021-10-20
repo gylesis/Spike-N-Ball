@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using For_UI;
 using UnityEngine;
 
 public class SkinLook : MonoBehaviour
@@ -13,6 +14,6 @@ public class SkinLook : MonoBehaviour
     
     void Update()
     {
-       Rend.material.mainTexture = Skins_MonoBehaviour.skinRenderer.material.mainTexture;
+       Rend.material.mainTexture = SkinInitializer.skinRenderer.material.mainTexture;
     }
 }

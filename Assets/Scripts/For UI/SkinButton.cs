@@ -1,25 +1,22 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class SkinButton : MonoBehaviour, IPointerDownHandler
+namespace For_UI
 {
-    [SerializeField] string name;
-    
-
-   public void OnPointerDown(PointerEventData eventData)
+    public class SkinButton : MonoBehaviour, IPointerDownHandler
     {
-       
-        foreach (Skin skin in Skins.skins)
+        [SerializeField] string name;
+
+
+        public void OnPointerDown(PointerEventData eventData)
         {
-            if (skin.name == name)
+            foreach (Skin skin in Skins.skins)
             {
-                print(skin.name);
-                StartCoroutine(skin.ChangeSkin());
+                if (skin.name == name)
+                {
+                    StartCoroutine(skin.ChangeSkin());
+                }
             }
-
         }
-
     }
 }

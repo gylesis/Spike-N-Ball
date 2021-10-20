@@ -1,64 +1,63 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.SceneManagement;
-public class Customization : MonoBehaviour
+﻿using UnityEngine;
+
+namespace Unused
 {
-    public static Customization Instance { get; private set; }
-    [SerializeField] Texture[] CurrentTexture;
-    [SerializeField] Material[] ListOfMaterials;
-    [SerializeField]Material CurrentMaterialForBg;
-    public Material CurrentMaterialForWalls;
-    [SerializeField]Material CurrentMaterialForSpikes;
-    [SerializeField] ParticleSystem.MainModule CrystallPickUp;
-    [SerializeField] ParticleSystem mainMod;
-    
-    public int ID_particle;
-
-    [SerializeField]int IndexOfCurrentTexture = 0;
-    private int IndexOfCurrentStyleBG;
-    private int IndexOfCurrentStyleWalls;
-    private int IndexOfCurrentStyleSpikes;
-
-    Vector2[] OffsetOfTexture;
-    Vector2[] TilingOfTexture;
-
-    Color BgGreenTheme = new Color(43, 130, 96);
-    Color WallsGreenTheme = new Color(21,107, 73);
-    Color DefaultWallsColorTheme = new Color(200, 147, 35);
-    Color DefaultBgColorTheme = new Color(221,171,93);
-    [HideInInspector] public Color SeaWallsColor = new Color(67,143,166);
-    Color SeaBgColor = new Color();
-    [HideInInspector]public Renderer Cr;  
-    
-    
-    [SerializeField]Material Mater;
-    private void Awake()
+    public class Customization : MonoBehaviour
     {
-        Instance = this;
+        public static Customization Instance { get; private set; }
+        [SerializeField] Texture[] CurrentTexture;
+        [SerializeField] Material[] ListOfMaterials;
+        [SerializeField]Material CurrentMaterialForBg;
+        public Material CurrentMaterialForWalls;
+        [SerializeField]Material CurrentMaterialForSpikes;
+        [SerializeField] ParticleSystem.MainModule CrystallPickUp;
+        [SerializeField] ParticleSystem mainMod;
+    
+        public int ID_particle;
 
-    }
+        [SerializeField]int IndexOfCurrentTexture = 0;
+        private int IndexOfCurrentStyleBG;
+        private int IndexOfCurrentStyleWalls;
+        private int IndexOfCurrentStyleSpikes;
 
-    private void Start()
-    {
-        CrystallPickUp = mainMod.main;
-        Cr = GetComponent<Renderer>();
-        IndexOfCurrentTexture = PlayerPrefs.GetInt("Current skin", 0);
+        Vector2[] OffsetOfTexture;
+        Vector2[] TilingOfTexture;
 
-        IndexOfCurrentStyleBG = PlayerPrefs.GetInt("Current styleBG", 0);
-        IndexOfCurrentStyleWalls = PlayerPrefs.GetInt("Current styleWalls", 0);
-        IndexOfCurrentStyleSpikes = PlayerPrefs.GetInt("Current styleSpikes", 0);
+        Color BgGreenTheme = new Color(43, 130, 96);
+        Color WallsGreenTheme = new Color(21,107, 73);
+        Color DefaultWallsColorTheme = new Color(200, 147, 35);
+        Color DefaultBgColorTheme = new Color(221,171,93);
+        [HideInInspector] public Color SeaWallsColor = new Color(67,143,166);
+        Color SeaBgColor = new Color();
+        [HideInInspector]public Renderer Cr;  
+    
+    
+        [SerializeField]Material Mater;
+        private void Awake()
+        {
+            Instance = this;
 
-        Cr.material.mainTexture = CurrentTexture[IndexOfCurrentTexture];
-       // CirclePaticle.color = ListOfMaterials[IndexOfCurrentStyleWalls].color;
+        }
 
-        ID_particle = PlayerPrefs.GetInt("Current particleID", 0);     
-    }
+        private void Start()
+        {
+            CrystallPickUp = mainMod.main;
+            Cr = GetComponent<Renderer>();
+            IndexOfCurrentTexture = PlayerPrefs.GetInt("Current skin", 0);
 
-    #region StyleChange
+            IndexOfCurrentStyleBG = PlayerPrefs.GetInt("Current styleBG", 0);
+            IndexOfCurrentStyleWalls = PlayerPrefs.GetInt("Current styleWalls", 0);
+            IndexOfCurrentStyleSpikes = PlayerPrefs.GetInt("Current styleSpikes", 0);
+
+            Cr.material.mainTexture = CurrentTexture[IndexOfCurrentTexture];
+            // CirclePaticle.color = ListOfMaterials[IndexOfCurrentStyleWalls].color;
+
+            ID_particle = PlayerPrefs.GetInt("Current particleID", 0);     
+        }
+
+        #region StyleChange
    
-   /* public void ChangeToSea()
+        /* public void ChangeToSea()
     {
       //  int Cost = ;
 
@@ -195,67 +194,68 @@ public class Customization : MonoBehaviour
         PlayerPrefs.SetInt("Current styleWalls", IndexOfCurrentStyleWalls);
         PlayerPrefs.SetInt("Current styleSpikes", IndexOfCurrentStyleSpikes);
     }*/
-    #endregion
-    #region SkinChange 
-    public void ChangeToBlue()
-    {
-        IndexOfCurrentTexture = 0;
-        Cr.material.mainTexture = CurrentTexture[IndexOfCurrentTexture];
-        PlayerPrefs.SetInt("Current skin", IndexOfCurrentTexture);
-    }
-    public void ChangeToLeopard()
-    {
-        IndexOfCurrentTexture = 3;
-        Cr.material.mainTexture = CurrentTexture[IndexOfCurrentTexture];        
-        PlayerPrefs.SetInt("Current skin", IndexOfCurrentTexture);
+        #endregion
+        #region SkinChange 
+        public void ChangeToBlue()
+        {
+            IndexOfCurrentTexture = 0;
+            Cr.material.mainTexture = CurrentTexture[IndexOfCurrentTexture];
+            PlayerPrefs.SetInt("Current skin", IndexOfCurrentTexture);
+        }
+        public void ChangeToLeopard()
+        {
+            IndexOfCurrentTexture = 3;
+            Cr.material.mainTexture = CurrentTexture[IndexOfCurrentTexture];        
+            PlayerPrefs.SetInt("Current skin", IndexOfCurrentTexture);
 
-    }
-    public void ChangeToPink()
-    {
-        IndexOfCurrentTexture = 5;
-        Cr.material.mainTexture = CurrentTexture[IndexOfCurrentTexture];
-        PlayerPrefs.SetInt("Current skin", IndexOfCurrentTexture);
-    }
-    public void ChangeToYellow()
-    {
-        IndexOfCurrentTexture = 2;
-        Cr.material.mainTexture = CurrentTexture[IndexOfCurrentTexture];
-        PlayerPrefs.SetInt("Current skin", IndexOfCurrentTexture);
-    }
-    public void ChangeToCorona1()
-    {
-        IndexOfCurrentTexture = 1;
-        Cr.material.mainTexture = CurrentTexture[IndexOfCurrentTexture];
-        PlayerPrefs.SetInt("Current skin", IndexOfCurrentTexture);
-    }
-    public void ChangeToCorona2()
-    {
-        IndexOfCurrentTexture = 4;
-        Cr.material.mainTexture = CurrentTexture[IndexOfCurrentTexture];
-        PlayerPrefs.SetInt("Current skin", IndexOfCurrentTexture);
-    }
-    public void ChangeToInvis()
-    {
-        IndexOfCurrentTexture = 6;
-        Cr.material.mainTexture = CurrentTexture[IndexOfCurrentTexture];
-        PlayerPrefs.SetInt("Current skin", IndexOfCurrentTexture);
-    }
-    public void ChangeToChinaCoin()
-    {
-        IndexOfCurrentTexture = 8;
-        Cr.material.mainTexture = CurrentTexture[IndexOfCurrentTexture];
-        PlayerPrefs.SetInt("Current skin", IndexOfCurrentTexture);
-    }
-    public void ChangeToSalad()
-    {
-        IndexOfCurrentTexture = 7;
-        Cr.material.mainTexture = CurrentTexture[IndexOfCurrentTexture];
-        PlayerPrefs.SetInt("Current skin", IndexOfCurrentTexture);
-    }
-    #endregion
-
-
+        }
+        public void ChangeToPink()
+        {
+            IndexOfCurrentTexture = 5;
+            Cr.material.mainTexture = CurrentTexture[IndexOfCurrentTexture];
+            PlayerPrefs.SetInt("Current skin", IndexOfCurrentTexture);
+        }
+        public void ChangeToYellow()
+        {
+            IndexOfCurrentTexture = 2;
+            Cr.material.mainTexture = CurrentTexture[IndexOfCurrentTexture];
+            PlayerPrefs.SetInt("Current skin", IndexOfCurrentTexture);
+        }
+        public void ChangeToCorona1()
+        {
+            IndexOfCurrentTexture = 1;
+            Cr.material.mainTexture = CurrentTexture[IndexOfCurrentTexture];
+            PlayerPrefs.SetInt("Current skin", IndexOfCurrentTexture);
+        }
+        public void ChangeToCorona2()
+        {
+            IndexOfCurrentTexture = 4;
+            Cr.material.mainTexture = CurrentTexture[IndexOfCurrentTexture];
+            PlayerPrefs.SetInt("Current skin", IndexOfCurrentTexture);
+        }
+        public void ChangeToInvis()
+        {
+            IndexOfCurrentTexture = 6;
+            Cr.material.mainTexture = CurrentTexture[IndexOfCurrentTexture];
+            PlayerPrefs.SetInt("Current skin", IndexOfCurrentTexture);
+        }
+        public void ChangeToChinaCoin()
+        {
+            IndexOfCurrentTexture = 8;
+            Cr.material.mainTexture = CurrentTexture[IndexOfCurrentTexture];
+            PlayerPrefs.SetInt("Current skin", IndexOfCurrentTexture);
+        }
+        public void ChangeToSalad()
+        {
+            IndexOfCurrentTexture = 7;
+            Cr.material.mainTexture = CurrentTexture[IndexOfCurrentTexture];
+            PlayerPrefs.SetInt("Current skin", IndexOfCurrentTexture);
+        }
+        #endregion
 
 
 
+
+
+    }
 }

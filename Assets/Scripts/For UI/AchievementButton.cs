@@ -2,44 +2,42 @@
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class AchievementButton : MonoBehaviour {
-    public static AchievementButton Instance { get; set; }
-    public GameObject achButton;
-    public Transform prefabAch;
+namespace For_UI
+{
+    public class AchievementButton : MonoBehaviour, IPointerClickHandler
+    {
+        [SerializeField] Text _awardAmountText;
 
-    [SerializeField]
-    Text awardAmount;
+        [SerializeField] GameObject onGetAwardParticlesPrefab;
 
-    [SerializeField]
-    GameObject onGetAwardParticlesPrefab;
+        private Achievement _achievement;
 
-    Achievement achievement;
+        public void Initialize(Achievement achievement)
+        {
+            _achievement = achievement;
 
-    void Initialize() {
-        foreach (Achievement achievement in Achievements.achievements) {
-            Transform texts = achButton.transform.GetChild(0);
-            Text header = texts.gameObject.GetComponent<Text>();
-            if (achievement.header == header.text) {
-                this.achievement = achievement;
+            if (achievement.moneyAwarded)
+            {
+                gameObject.SetActive(false);
+                return;
             }
+            
+            _awardAmountText.text = achievement.awardAmount.ToString();
+        }
+
+        public void OnPointerClick(PointerEventData eventData)
+        {
+            _achievement.GetAward();
+
+            Vector3 point = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+            point.z = 0;
+            
+            GameObject particles = Instantiate(onGetAwardParticlesPrefab, point,Quaternion.identity);
+
+            Destroy(particles,2 * Time.timeScale);
+
+            gameObject.SetActive(false);
         }
     }
-
-    void Start() {
-        Instance = this;
-        Initialize();
-
-        awardAmount.text = achievement.awardAmount.ToString();
-    }
-
-    private void OnMouseDown() {
-        Instantiate(onGetAwardParticlesPrefab, transform.root);
-        achievement.GetAward();
-
-        Debug.Log(achievement.header);
-        gameObject.SetActive(false);
-
-    }
-
-
 }

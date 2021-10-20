@@ -1,69 +1,72 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class SwitchablePlatform : MonoBehaviour
+namespace For_Unique_Objects
 {
-    GameObject[] platforms;
-    MeshRenderer[] MR;
-    BoxCollider[] BC;
-    bool switч;
-
-    void Start()
+    public class SwitchablePlatform : MonoBehaviour
     {
-        InitializePlatforms();
-    }
+        GameObject[] platforms;
+        MeshRenderer[] MR;
+        BoxCollider[] BC;
+        bool switч;
 
-    public void SwitchPlatforms()
-    {
-        switч = !switч;
-        if (switч)
+        void Start()
         {
-            for (int i = 0; i < platforms.Length; i++)
+            InitializePlatforms();
+        }
+
+        public void SwitchPlatforms()
+        {
+            switч = !switч;
+            if (switч)
             {
-                ActivateByName(i, "One");
-                DiactivateByName(i, "Two");
+                for (int i = 0; i < platforms.Length; i++)
+                {
+                    ActivateByName(i, "One");
+                    DiactivateByName(i, "Two");
+                }
+            }
+            else
+            {
+                for (int i = 0; i < platforms.Length; i++)
+                {
+                    ActivateByName(i, "Two");
+                    DiactivateByName(i, "One");
+                }
             }
         }
-        else
+
+        private void InitializePlatforms()
         {
-            for (int i = 0; i < platforms.Length; i++)
+            platforms = new GameObject[transform.childCount];
+            MR = new MeshRenderer[transform.childCount];
+            BC = new BoxCollider[transform.childCount];
+            for (int i = 0; i < transform.childCount; i++)
             {
-                ActivateByName(i, "Two");
+                platforms[i] = transform.GetChild(i).gameObject;
+                MR[i] = platforms[i].transform.GetComponent<MeshRenderer>();
+                BC[i] = platforms[i].transform.GetComponent<BoxCollider>();
+
                 DiactivateByName(i, "One");
             }
         }
-    }
 
-    private void InitializePlatforms()
-    {
-        platforms = new GameObject[transform.childCount];
-        MR = new MeshRenderer[transform.childCount];
-        BC = new BoxCollider[transform.childCount];
-        for (int i = 0; i < transform.childCount; i++)
+        void DiactivateByName(int counter ,string name)
         {
-            platforms[i] = transform.GetChild(i).gameObject;
-            MR[i] = platforms[i].transform.GetComponent<MeshRenderer>();
-            BC[i] = platforms[i].transform.GetComponent<BoxCollider>();
-
-            DiactivateByName(i, "One");
+            if (platforms[counter].name == name)
+            {
+                platforms[counter].transform.GetChild(1).gameObject.SetActive(false);
+                BC[counter].isTrigger = true;
+                MR[counter].enabled = false;
+            }
         }
-    }
-
-    void DiactivateByName(int counter ,string name)
-    {
-        if (platforms[counter].name == name)
+        void ActivateByName(int counter, string name)
         {
-            BC[counter].isTrigger = true;
-            MR[counter].enabled = false;
-        }
-    }
-    void ActivateByName(int counter, string name)
-    {
-        if (platforms[counter].name == name)
-        {
-            BC[counter].isTrigger = false;
-            MR[counter].enabled = true;
+            if (platforms[counter].name == name)
+            {
+                platforms[counter].transform.GetChild(1).gameObject.SetActive(true);
+                BC[counter].isTrigger = false;
+                MR[counter].enabled = true;
+            }
         }
     }
 }

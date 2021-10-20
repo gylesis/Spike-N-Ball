@@ -1,22 +1,34 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Money : MonoBehaviour
+namespace For_UI
 {
-    public static Money Instance { get; set; }
-    public Text MoneyCounter;
-    public int money = 0;
+    public class Money : MonoBehaviour
+    {
+        public static Money Instance { get; set; }
+        [SerializeField] private List<Text> MoneyCounter;
+        public int money = 0;
 
-    private void Start()
-    {
-        Instance = this;
-        money = PlayerPrefs.GetInt("CrystallsScore", 0);
-        Debug.LogFormat("I have {1} crystals",money);
-    }
-    void Update()
-    {
-        MoneyCounter.text = money.ToString();
+        private void Start()
+        {
+            Instance = this;
+            money = PlayerPrefs.GetInt("CrystallsScore", 0);
+            
+            
+        }
+
+        private void Update()
+        {
+            UpdateView();
+        }
+
+        public void UpdateView()
+        {
+            foreach (var text in MoneyCounter)
+            {
+                text.text = money.ToString();
+            }
+        }
     }
 }

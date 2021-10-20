@@ -17,6 +17,7 @@ TagManager:
   - Pause
   - ImageInAchiev
   - NonJoystickable
+  - BackButton
   layers:
   - Default
   - TransparentFX

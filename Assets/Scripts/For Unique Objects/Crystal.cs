@@ -1,43 +1,46 @@
-﻿using UnityEngine;
-using UnityEngine.UI;
+﻿using For_UI;
+using UnityEngine;
+using Random = UnityEngine.Random;
 
-public class Crystal : MonoBehaviour
+namespace For_Unique_Objects
 {
-    // void Activation()
-    // {
-    //      gameObject.GetComponent<SpriteRenderer>().enabled = false;
-    // }
-
-    private void OnTriggerEnter(Collider other)
+    public class Crystal : MonoBehaviour
     {
-        if(other.gameObject.tag == "Player")
+        [SerializeField] private GameObject _particleSystem;
+        
+        private void Start()
         {
+            SpawnCrystall();
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.gameObject.CompareTag("Player"))
+            {
+                OnPickup();
+            }
+        }
+
+        private void OnPickup()
+        {
+            GameObject particles = Instantiate(_particleSystem,transform.position,Quaternion.identity);
+            Destroy(particles, 5 * Time.timeScale);
+            
+            AudioManager.Instance.PlayCrystalPick(0.02f);
             Score.Instance.AddingCrystall();
             gameObject.SetActive(false);
         }
-       
-    }
 
-    private void Start()
-    {
-        SpawnsCoins();
-
-    }
-
-    //public void AddingScore()
-   // {      
-   //     Score.Instance.CrystScore += 1;
-   //     Score.Instance.CrystalCount.text = Score.Instance.CrystScore.ToString();
-   // }
-
-    void SpawnsCoins()
-    {
-        int rnd = (int)(Random.value * 10);     
-        if (rnd > 5 ) 
-        {        
-            gameObject.SetActive(false);
+        void SpawnCrystall()
+        {
+            int rnd = (int) (Random.value * 10);
+            if (rnd > 5)
+            {
+                gameObject.SetActive(false);
+            }
+        
         }
+
     }
-
-
 }
+
