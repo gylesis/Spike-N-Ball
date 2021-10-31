@@ -45,7 +45,7 @@ public class KUSALKA : MonoBehaviour
         ToAttack.Goto(0.8f);
         ToAttack.Pause();
         
-        TimerIdle._action = FindPlayer;
+        TimerIdle.onStop = FindPlayer;
     }
 
     void FindPlayer() => DirectionToAttack =
@@ -155,8 +155,8 @@ internal class Timer
 {
     public float time;
     public float targetTime;
-    public bool _isStarted;
-    public Action _action;
+    private bool isStarted;
+    public Action onStop;
 
     public Timer(float _targetTime)
     {
@@ -166,7 +166,7 @@ internal class Timer
 
     public void UpdateTime()
     {
-        if (_isStarted) time += Time.deltaTime / Time.timeScale;
+        if (isStarted) time += Time.deltaTime / Time.timeScale;
     }
 
     public void Stop(float t)
@@ -174,14 +174,14 @@ internal class Timer
         if (time >= targetTime + t)
         {
             time = 0;
-            _isStarted = false;
-            _action();
+            isStarted = false;
+            onStop?.Invoke();
         }
     }
 
     public void Start()
     {
-        _isStarted = true;
+        isStarted = true;
     }
 
     public bool Check() => time > targetTime;
