@@ -3,18 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="c0949eb7-c572-46eb-a361-cd9b2710fa56" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Spike-N-Ball/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Spike-N-Ball/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MeshDeformation.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MeshDeformation.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Ball.fbx" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Ball.fbx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Ball.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Ball.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/TEST.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/TEST.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/pig.blend" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/pig.blend.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/pig.blend1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/pig.blend1.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/playerRigged.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/playerRigged.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerControl.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerControl.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Skins for ball/Materials/Wheel.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Skins for ball/Materials/Wheel.mat" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +77,7 @@
       <workItem from="1634752657719" duration="596000" />
       <workItem from="1634827730960" duration="1736000" />
       <workItem from="1634892946536" duration="1189000" />
-      <workItem from="1635609513752" duration="8668000" />
+      <workItem from="1635609513752" duration="10085000" />
     </task>
     <servers />
   </component>
