@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\for Unity\Spike-N-Ball" t="IncludeRecursive">
+      <e p="Assembly-CSharp-firstpass.csproj" t="IncludeRecursive" />
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="csc.rsp" t="Include" />
+        <e p="GoogleMobileAds" t="Include">
+          <e p="Editor" t="Include">
+            <e p="BuildPreProcessor.cs" t="Include" />
+            <e p="GoogleMobileAds.Editor.asmdef" t="Include" />
+            <e p="GoogleMobileAdsDependencies.xml" t="Include" />
+            <e p="GoogleMobileAdsSettings.cs" t="Include" />
+            <e p="GoogleMobileAdsSettingsEditor.cs" t="Include" />
+            <e p="GoogleMobileAdsSKAdNetworkItems.xml" t="Include" />
+            <e p="ManifestProcessor.cs" t="Include" />
+            <e p="PListProcessor.cs" t="Include" />
+          </e>
+          <e p="GoogleMobileAds_version-6.1.0_manifest.txt" t="Include" />
+          <e p="link.xml" t="Include" />
+        </e>
+        <e p="Material" t="Include">
+          <e p="blur.shader" t="Include" />
+        </e>
+        <e p="MeshDeformation.cs" t="Include" />
+        <e p="Plugins" t="Include">
+          <e p="Android" t="Include">
+            <e p="GoogleMobileAdsPlugin.androidlib" t="Include">
+              <e p="AndroidManifest.xml" t="Include" />
+            </e>
+          </e>
+          <e p="Demigiant" t="Include">
+            <e p="DOTween" t="Include">
+              <e p="Modules" t="Include">
+                <e p="DOTweenModuleAudio.cs" t="Include" />
+                <e p="DOTweenModuleEPOOutline.cs" t="Include" />
+                <e p="DOTweenModulePhysics.cs" t="Include" />
+                <e p="DOTweenModulePhysics2D.cs" t="Include" />
+                <e p="DOTweenModuleSprite.cs" t="Include" />
+                <e p="DOTweenModuleUI.cs" t="Include" />
+                <e p="DOTweenModuleUnityVersion.cs" t="Include" />
+                <e p="DOTweenModuleUtils.cs" t="Include" />
+              </e>
+              <e p="readme.txt" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Polygon Arsenal" t="Include">
+          <e p="Demo" t="Include">
+            <e p="Scripts" t="Include">
+              <e p="PolygonBeamScript.cs" t="Include" />
+              <e p="PolygonButtonScript.cs" t="Include" />
+              <e p="PolygonFireProjectile.cs" t="Include" />
+              <e p="PolygonLoopScript.cs" t="Include" />
+              <e p="PolygonOrbit.cs" t="Include" />
+              <e p="PolygonProjectileScript.cs" t="Include" />
+              <e p="PolygonSceneSelect.cs" t="Include" />
+            </e>
+          </e>
+          <e p="Polygon Arsenal - Readme.txt" t="Include" />
+          <e p="Scripts" t="Include">
+            <e p="PolygonLightFade.cs" t="Include" />
+            <e p="PolygonLightFlicker.cs" t="Include" />
+            <e p="PolygonRotation.cs" t="Include" />
+            <e p="PolygonSoundSpawn.cs" t="Include" />
+          </e>
+          <e p="Shaders" t="Include">
+            <e p="Standard" t="Include">
+              <e p="PolyLitSurface.shader" t="Include" />
+              <e p="PolyRimLightSelective.shader" t="Include" />
+              <e p="PolyRimLightSolid.shader" t="Include" />
+              <e p="PolyRimLightTransparent.shader" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Scripts" t="Include">
+          <e p="AchievementNotifier.cs" t="Include" />
+          <e p="AI" t="Include">
+            <e p="AttackState.cs" t="Include" />
+            <e p="BackToStartState.cs" t="Include" />
+            <e p="BiteBallAI.cs" t="Include" />
+            <e p="Entities" t="Include">
+              <e p="Beast.cs" t="Include" />
+              <e p="EnemyDetector.cs" t="Include" />
+              <e p="GatherableResource.cs" t="Include" />
+              <e p="Gatherer.cs" t="Include" />
+              <e p="StockPile.cs" t="Include" />
+              <e p="WoodDropper.cs" t="Include" />
+            </e>
+            <e p="FoundPlayerState.cs" t="Include" />
+            <e p="IdleState.cs" t="Include" />
+            <e p="IState.cs" t="Include" />
+            <e p="KUSALKA.cs" t="Include" />
+            <e p="StateMachine.cs" t="Include" />
+            <e p="States" t="Include">
+              <e p="Flee.cs" t="Include" />
+              <e p="HarvestResource.cs" t="Include" />
+              <e p="MoveToSelectedResource.cs" t="Include" />
+              <e p="PlaceResourcesInStockpile.cs" t="Include" />
+              <e p="ReturnToStockpile.cs" t="Include" />
+              <e p="SearchForResource.cs" t="Include" />
+            </e>
+            <e p="UI" t="Include">
+              <e p="GatheredText.cs" t="Include" />
+              <e p="LookAtCamera.cs" t="Include" />
+            </e>
+          </e>
+          <e p="BlurControl.cs" t="Include" />
+          <e p="CameraControl.cs" t="Include" />
+          <e p="CountdownTimer.cs" t="Include" />
+          <e p="CustomButton.cs" t="Include" />
+          <e p="EaseMover.cs" t="Include" />
+          <e p="Enemy.cs" t="Include" />
+          <e p="EnemySpikes.cs" t="Include" />
+          <e p="EnemySpikes_SnekaBehaviour.cs" t="Include" />
+          <e p="FlyingEnemy.cs" t="Include" />
+          <e p="For UI" t="Include">
+            <e p="Achievement.cs" t="Include" />
+            <e p="AchievementButton.cs" t="Include" />
+            <e p="AchievementsMenu.cs" t="Include" />
+            <e p="AchievementView.cs" t="Include" />
+            <e p="AnimatorController.cs" t="Include" />
+            <e p="ColorsForMaterials.cs" t="Include" />
+            <e p="ConfirmationToBuy.cs" t="Include" />
+            <e p="EnviromentAct.cs" t="Include" />
+            <e p="GetAwardFromAchievement.cs" t="Include" />
+            <e p="Instruction.cs" t="Include" />
+            <e p="Joystick.cs" t="Include" />
+            <e p="ListOfSkins.cs" t="Include" />
+            <e p="ListOfStyles.cs" t="Include" />
+            <e p="MenuScript.cs" t="Include" />
+            <e p="Money.cs" t="Include" />
+            <e p="Score.cs" t="Include" />
+            <e p="SkinButton.cs" t="Include" />
+            <e p="SkinInitializer.cs" t="Include" />
+            <e p="Skins.cs" t="Include" />
+            <e p="SkinShopChanger.cs" t="Include" />
+            <e p="StylesChange.cs" t="Include" />
+            <e p="StyleShopChanger.cs" t="Include" />
+            <e p="TapPrefab.cs" t="Include" />
+          </e>
+          <e p="For Unique Objects" t="Include">
+            <e p="AdController.cs" t="Include" />
+            <e p="Advertisements.cs" t="Include" />
+            <e p="AudioManager.cs" t="Include" />
+            <e p="AudioPrefab.cs" t="Include" />
+            <e p="ChangeSkin.cs" t="Include" />
+            <e p="ChangeStyle.cs" t="Include" />
+            <e p="Constants.cs" t="Include" />
+            <e p="Crystal.cs" t="Include" />
+            <e p="Deleting.cs" t="Include" />
+            <e p="ImagesColorSetter.cs" t="Include" />
+            <e p="MagneticSphere.cs" t="Include" />
+            <e p="MoveablePlatform.cs" t="Include" />
+            <e p="MoveByWaypoints.cs" t="Include" />
+            <e p="MusicControl.cs" t="Include" />
+            <e p="Rotation.cs" t="Include" />
+            <e p="SwitchablePlatform.cs" t="Include" />
+          </e>
+          <e p="FreeReward.cs" t="Include" />
+          <e p="ImageButton.cs" t="Include" />
+          <e p="JoystickView.cs" t="Include" />
+          <e p="LevelGeneration.cs" t="Include" />
+          <e p="ListingOfStyleMaterials.cs" t="Include" />
+          <e p="ListOfTextures.cs" t="Include" />
+          <e p="Notifier.cs" t="Include" />
+          <e p="ParticleChoose.cs" t="Include" />
+          <e p="PlayerControl.cs" t="Include" />
+          <e p="PopUp.cs" t="Include" />
+          <e p="Review.cs" t="Include" />
+          <e p="ShopNotifier.cs" t="Include" />
+          <e p="SkinLook.cs" t="Include" />
+          <e p="Stats.cs" t="Include" />
+          <e p="SwitchButton.cs" t="Include" />
+          <e p="TimeContainer.cs" t="Include" />
+          <e p="Unused" t="Include">
+            <e p="Customization.cs" t="Include" />
+            <e p="PlayerControl[Unused].cs" t="Include" />
+            <e p="ыывфвфывфы.cs" t="Include" />
+          </e>
+        </e>
+        <e p="smcs.rsp" t="Include" />
+        <e p="SoundView.cs" t="Include" />
+        <e p="TextMesh Pro" t="Include">
+          <e p="Fonts" t="Include">
+            <e p="LiberationSans - OFL.txt" t="Include" />
+          </e>
+          <e p="Resources" t="Include">
+            <e p="LineBreaking Following Characters.txt" t="Include" />
+            <e p="LineBreaking Leading Characters.txt" t="Include" />
+          </e>
+          <e p="Shaders" t="Include">
+            <e p="TMP_Bitmap-Custom-Atlas.shader" t="Include" />
+            <e p="TMP_Bitmap-Mobile.shader" t="Include" />
+            <e p="TMP_Bitmap.shader" t="Include" />
+            <e p="TMP_SDF Overlay.shader" t="Include" />
+            <e p="TMP_SDF SSD.shader" t="Include" />
+            <e p="TMP_SDF-Mobile Masking.shader" t="Include" />
+            <e p="TMP_SDF-Mobile Overlay.shader" t="Include" />
+            <e p="TMP_SDF-Mobile SSD.shader" t="Include" />
+            <e p="TMP_SDF-Mobile.shader" t="Include" />
+            <e p="TMP_SDF-Surface-Mobile.shader" t="Include" />
+            <e p="TMP_SDF-Surface.shader" t="Include" />
+            <e p="TMP_SDF.shader" t="Include" />
+            <e p="TMP_Sprite.shader" t="Include" />
+            <e p="TMPro.cginc" t="Include" />
+            <e p="TMPro_Mobile.cginc" t="Include" />
+            <e p="TMPro_Properties.cginc" t="Include" />
+            <e p="TMPro_Surface.cginc" t="Include" />
+          </e>
+          <e p="Sprites" t="Include">
+            <e p="EmojiOne Attribution.txt" t="Include" />
+          </e>
+        </e>
+        <e p="UnityAds" t="Include">
+          <e p="link.xml" t="Include" />
+        </e>
+      </e>
+      <e p="GoogleMobileAds.Editor.csproj" t="IncludeRecursive" />
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="Packages" t="ExcludeRecursive" />
+      <e p="Spike-N-Ball.sln" t="IncludeFlat" />
+      <e p="Temp\Bin" t="ExcludeRecursive" />
+    </e>
+    <e p="C:\Users\nikit\AppData\Local\JetBrains\Rider2020.3\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\nikit\AppData\Local\JetBrains\Rider2020.3\resharper-host\Local\Transient\Rider\v203\SolutionCaches\_Spike-N-Ball.-1965738381.00" t="ExcludeRecursive" />
+  </component>
+</project>
