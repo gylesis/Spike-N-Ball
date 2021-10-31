@@ -14,13 +14,12 @@ public class MeshDeformation : MonoBehaviour
     [SerializeField] private MeshFilter MeshFilter;
     [SerializeField] private AnimationCurve Curve;
     [SerializeField] private Ease Ease;
-    
+
     private void Start()
     {
         Mesh = MeshFilter.mesh;
         Deformation = new Tween[Mesh.vertexCount];
         Vertices = Mesh.vertices;
-        
     }
 
     private void FixedUpdate()
@@ -32,12 +31,19 @@ public class MeshDeformation : MonoBehaviour
     {
         for (int i = 0; i < Mesh.vertexCount; i++)
         {
-            var hitPosition = direction.normalized * 0.32f;
-            var deformStrength = Vector2.Distance(hitPosition, Vertices[i])/0.64f;
+            const float diameter = 0.64f;
+            var hitPosition = direction.normalized * diameter / 2;
+            float deformStrength;
+
+            if (Vertices[i] == Vector3.zero)
+                deformStrength = 1;
+            else
+                deformStrength = Vector2.Distance(hitPosition, Vertices[i]) / diameter;
+
             var deformDirection = hitPosition - (Vector2) Vertices[i];
             var transition = (Vector3) deformDirection.normalized * Curve.Evaluate(deformStrength) * strength / 2;
             var vertexDestination = Vertices[i] + transition;
-            
+
             if (Deformation[i] != null && Deformation[i].active)
             {
                 Deformation[i].Complete();
@@ -56,5 +62,14 @@ public class MeshDeformation : MonoBehaviour
     {
         Mesh.vertices = Vertices;
         Mesh.RecalculateBounds();
+    }
+
+    private void OnDrawGizmos()
+    {
+        if (Vertices == null) return;
+        foreach (var vertex in Vertices)
+        {
+            Gizmos.DrawSphere(transform.position + vertex, vertex == Vector3.zero ? 0.1f : 0.02f);
+        }
     }
 }
