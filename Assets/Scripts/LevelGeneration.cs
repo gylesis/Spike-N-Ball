@@ -28,8 +28,10 @@ public class LevelGeneration : MonoBehaviour
     {
         Instance = this;
         levelPool = levelPool.Concat(levelElementary).ToArray();
-        Score.Instance.OnScoreChange = () => { levelPool = levelPool.Concat(levelIntermediate).ToArray(); };
-        Score.Instance.OnSignificantScoreChange = () => { levelPool = levelPool.Concat(levelAdvanced).ToArray(); };
+        Score.Instance.OnScoreChange = () => { levelPool = levelPool.Concat(levelIntermediate).ToArray(); Debug.Log("LVL2"); };
+        Score.Instance.OnSignificantScoreChange = () => { levelPool = levelPool.Concat(levelAdvanced).ToArray();
+            Debug.Log("LVL3");
+        };
         
         if (patternsToDebug.Length != 0)
         {

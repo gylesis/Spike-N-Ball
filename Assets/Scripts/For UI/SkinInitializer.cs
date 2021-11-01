@@ -10,7 +10,6 @@ namespace For_UI
         {
             skinRenderer = GetComponentInChildren<Renderer>();
             Invoke("Porno", Time.deltaTime);
-            Debug.Log(skinRenderer.name);
         }
 
         public void Porno()

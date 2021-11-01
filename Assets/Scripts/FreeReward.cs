@@ -31,12 +31,7 @@ public class FreeReward : MonoBehaviour
             return;
         }
 
-            
         var data = Data.FromJson(json);
-
-        Debug.Log($"{data.IsRewarded} rewarded");
-        Debug.Log($"{data.TimeContainer.Minutes} minutes time");
-        Debug.Log($"{data.TimeContainer.Seconds} seconds time");
 
         _isRewarded = data.IsRewarded;
         _leftTime = data.TimeContainer;

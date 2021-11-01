@@ -31,13 +31,19 @@ namespace For_UI
         public Action OnScoreChange;
         public Action OnSignificantScoreChange;
 
+        private const int MaxHighscoreToKostya = 80;
+        private const int ScoreFor2NdDifficulty = 20;
+        private const int ScoreFor3RdDifficulty = 40;
+
+
         int CurrentScore
         {
             get => (int)count;
             set
             {
-                if (value >= 25 * (1 - CurrentHighScore / 100)) IncreaseDifficultyTo2();
-                if (value >= 50 * (1 - CurrentHighScore / 100)) IncreaseDifficultyTo3();
+                var shiftToMax = (1 - (float) CurrentHighScore / MaxHighscoreToKostya);
+                if (value >= ScoreFor2NdDifficulty * shiftToMax) IncreaseDifficultyTo2();
+                if (value >= ScoreFor3RdDifficulty * shiftToMax) IncreaseDifficultyTo3();
                 count = value;
             }
             
@@ -52,7 +58,7 @@ namespace For_UI
                 action();
                 alreadyCalled.flag = true;
             };
-        } 
+        }
         struct alreadyCalled
         {
             public bool flag;
