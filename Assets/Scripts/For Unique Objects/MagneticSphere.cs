@@ -35,8 +35,7 @@ namespace For_Unique_Objects
             isEnabled = false;
             while (transform.localScale.x >= speedOfDisappear)
             {
-                Vector2 newScale = new Vector2(transform.localScale.x - speedOfDisappear,
-                    transform.localScale.x - speedOfDisappear);
+                Vector3 newScale = transform.localScale - Vector3.one * speedOfDisappear;
                 transform.localScale = newScale;
 
                 yield return null;
@@ -51,8 +50,7 @@ namespace For_Unique_Objects
             isEnabled = true;
             while (transform.localScale.x < 0.4 - speedOfDisappear)
             {
-                Vector2 newScale = new Vector2(transform.localScale.x + speedOfDisappear,
-                    transform.localScale.x + speedOfDisappear);
+                Vector3 newScale = transform.localScale + Vector3.one * speedOfDisappear;
                 transform.localScale = newScale;
 
                 yield return null;
