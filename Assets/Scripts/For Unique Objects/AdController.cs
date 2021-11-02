@@ -31,11 +31,11 @@ namespace For_Unique_Objects
             
             if (isDebugBuild)
             {
-                adId = Constants.AdMob.Interstetial;
+                adId = Constants.AdMob.TestAd;
             }
             else
             {
-                adId = Constants.AdMob.TestAd;
+                adId = Constants.AdMob.Interstetial;
             }
 
             InterstitialAd interstitialAd = new InterstitialAd(adId);
@@ -58,11 +58,11 @@ namespace For_Unique_Objects
             
             if (isDebugBuild)
             {
-                adId = Constants.AdMob.Reward;
+                adId = Constants.AdMob.TestAd;
             }
             else
             {
-                adId = Constants.AdMob.TestAd;
+                adId = Constants.AdMob.Reward;
             }
             
             RewardedAd rewardedAd = new RewardedAd(adId);

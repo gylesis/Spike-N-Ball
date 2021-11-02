@@ -9,12 +9,14 @@ namespace For_UI
         void Start()
         {
             skinRenderer = GetComponentInChildren<Renderer>();
-            Invoke("Porno", Time.deltaTime);
+            Invoke(nameof(InitSkin), Time.deltaTime);
         }
 
-        public void Porno()
+        public void InitSkin()
         {
-            Skins.skins[PlayerPrefs.GetInt("currentSkin", 3)].SetSkin();
+            var skinIndex = PlayerPrefs.GetInt("currentSkin", 3);
+            Skin skin = Skins.skins[skinIndex];
+            skin.SetSkin();
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,11 +7,13 @@ namespace For_UI
 {
     public class Skin
     {
-        Texture texture;
+        public Texture texture;
         public string name;
         public int cost;
         public bool bought;
-
+        public static event Action<Skin> SkinChanged;
+        public static Skin CurrentSkin;
+        
         public Skin(string _name, Texture _texture, int _cost)
         {
             cost = _cost;
@@ -31,8 +34,11 @@ namespace For_UI
 
         public void SetSkin()
         {
+            Debug.Log("Change skin");   
             SkinInitializer.skinRenderer.material.mainTexture = texture;
             PlayerControl.Instance.trail.sharedMaterial.mainTexture = texture;
+            CurrentSkin = this;
+            SkinChanged?.Invoke(this);
         }
 
         public IEnumerator ChangeSkin()
