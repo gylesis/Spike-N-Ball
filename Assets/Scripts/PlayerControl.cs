@@ -137,7 +137,7 @@ public class PlayerControl : MonoBehaviour
         {
             Rigidbody.velocity = Vector3.zero;
             var deformDirection = -collision.GetContact(0).normal;
-            _deformation.Deform(deformDirection,0.5f, 0.08f);
+            _deformation.Deform(deformDirection, 0.4f, 0.08f);
         }
 
         if (collision.gameObject.CompareTag("Enemy"))
