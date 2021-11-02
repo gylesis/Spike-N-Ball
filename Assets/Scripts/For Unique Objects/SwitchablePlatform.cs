@@ -5,7 +5,7 @@ namespace For_Unique_Objects
     public class SwitchablePlatform : MonoBehaviour
     {
         GameObject[] platforms;
-        MeshRenderer[] MR;
+        DoorAnimation[] DA;
         BoxCollider[] BC;
         bool switч;
 
@@ -17,55 +17,37 @@ namespace For_Unique_Objects
         public void SwitchPlatforms()
         {
             switч = !switч;
-            if (switч)
+            for (int i = 0; i < platforms.Length; i++)
             {
-                for (int i = 0; i < platforms.Length; i++)
-                {
-                    ActivateByName(i, "One");
-                    DiactivateByName(i, "Two");
-                }
-            }
-            else
-            {
-                for (int i = 0; i < platforms.Length; i++)
-                {
-                    ActivateByName(i, "Two");
-                    DiactivateByName(i, "One");
-                }
+                ToggleByName(i, "One", switч);
+                ToggleByName(i, "Two", !switч);
             }
         }
-
+        
         private void InitializePlatforms()
         {
             platforms = new GameObject[transform.childCount];
-            MR = new MeshRenderer[transform.childCount];
+            DA = new DoorAnimation[transform.childCount];
             BC = new BoxCollider[transform.childCount];
             for (int i = 0; i < transform.childCount; i++)
             {
                 platforms[i] = transform.GetChild(i).gameObject;
-                MR[i] = platforms[i].transform.GetComponent<MeshRenderer>();
+                DA[i] = platforms[i].transform.GetComponent<DoorAnimation>();
                 BC[i] = platforms[i].transform.GetComponent<BoxCollider>();
 
-                DiactivateByName(i, "One");
+                ToggleByName(i, "One", false);
+                ToggleByName(i, "Two", true);
             }
         }
 
-        void DiactivateByName(int counter ,string name)
+        void ToggleByName(int counter, string name, bool activate)
         {
             if (platforms[counter].name == name)
             {
-                platforms[counter].transform.GetChild(1).gameObject.SetActive(false);
-                BC[counter].isTrigger = true;
-                MR[counter].enabled = false;
-            }
-        }
-        void ActivateByName(int counter, string name)
-        {
-            if (platforms[counter].name == name)
-            {
-                platforms[counter].transform.GetChild(1).gameObject.SetActive(true);
-                BC[counter].isTrigger = false;
-                MR[counter].enabled = true;
+                var switchSign = platforms[counter].transform.GetChild(1).gameObject;
+                if (!activate) switchSign.SetActive(false);
+                BC[counter].enabled = !activate;
+                DA[counter].ToggleDoor(activate, () => { if (activate) switchSign.SetActive(true); });
             }
         }
     }
