@@ -1598,6 +1598,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 469227257}
     m_Modifications:
+    - target: {fileID: 5057182542854086848, guid: e2bced2a34e70b54cae8c5243fecf285,
+        type: 3}
+      propertyPath: m_Transition
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5057182542854086848, guid: e2bced2a34e70b54cae8c5243fecf285,
+        type: 3}
+      propertyPath: m_TargetGraphic
+      value: 
+      objectReference: {fileID: 738790245}
+    - target: {fileID: 5057182542854086848, guid: e2bced2a34e70b54cae8c5243fecf285,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1420763221}
+    - target: {fileID: 5057182542854086848, guid: e2bced2a34e70b54cae8c5243fecf285,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SettingsHide
+      objectReference: {fileID: 0}
     - target: {fileID: 5057182542854086849, guid: e2bced2a34e70b54cae8c5243fecf285,
         type: 3}
       propertyPath: m_Pivot.x
@@ -1796,6 +1816,18 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
+--- !u!114 &738790245 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5693260303126607531, guid: e0b8dd6450c107d47b4f26493a2261ab,
+    type: 3}
+  m_PrefabInstance: {fileID: 5693260302608189706}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &781643132
 GameObject:
   m_ObjectHideFlags: 0
@@ -7297,7 +7329,7 @@ PrefabInstance:
     - target: {fileID: 1327670643939914385, guid: 08a82f113a5a08640aeb4c212c7aceec,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -153.8
+      value: -153.80005
       objectReference: {fileID: 0}
     - target: {fileID: 1327670644021546691, guid: 08a82f113a5a08640aeb4c212c7aceec,
         type: 3}
@@ -7562,7 +7594,7 @@ PrefabInstance:
     - target: {fileID: 2766176287109314553, guid: 08a82f113a5a08640aeb4c212c7aceec,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4368083842205146205, guid: 08a82f113a5a08640aeb4c212c7aceec,
         type: 3}

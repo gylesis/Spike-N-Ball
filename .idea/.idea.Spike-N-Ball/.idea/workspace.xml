@@ -2,26 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c0949eb7-c572-46eb-a361-cd9b2710fa56" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Single Objects/AnimatedDoor.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Single Objects/AnimatedDoor.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/For Unique Objects/DoorAnimation.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/For Unique Objects/DoorAnimation.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Spike-N-Ball/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Spike-N-Ball/.idea/indexLayout.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Spike-N-Ball/.idea/shelf/Uncommitted_changes_before_Update_at_30_10_2021_18_34__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Spike-N-Ball/.idea/shelf/Uncommitted_changes_before_Update_at_30_10_2021_18_34__Default_Changelist_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Spike-N-Ball/.idea/shelf/Uncommitted_changes_before_Update_at_31_10_2021_22_31__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Spike-N-Ball/.idea/shelf/Uncommitted_changes_before_Update_at_31_10_2021_22_31__Default_Changelist_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Spike-N-Ball/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Spike-N-Ball/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Material/Game styles/DefaultMaterialForBG.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Material/Game styles/DefaultMaterialForBG.mat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Material/Game styles/DefaultMaterialForSpikes.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Material/Game styles/DefaultMaterialForSpikes.mat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Material/Game styles/DefaultMaterialForWalls.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Material/Game styles/DefaultMaterialForWalls.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Levels Patterns/12.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Levels Patterns/12.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Levels Patterns/14.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Levels Patterns/14.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Levels Patterns/18.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Levels Patterns/18.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Levels Patterns/19.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Levels Patterns/19.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Levels Patterns/8.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Levels Patterns/8.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Single Objects/Spikes.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Single Objects/Spikes.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Single Objects/SwitchablePlatform 1.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Single Objects/SwitchablePlatform 1.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Single Objects/SwitchablePlatforms.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Single Objects/SwitchablePlatforms.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game Scene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Game Scene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/For Unique Objects/SwitchablePlatform.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/For Unique Objects/SwitchablePlatform.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Sprites/Skins for ball/TrailMaterial/Trail.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Skins for ball/TrailMaterial/Trail.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/GvhProjectSettings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/GvhProjectSettings.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,7 +29,12 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/For Unique Objects/DoorAnimation.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/for Unity/Spike-N-Ball/Assets/Prefabs/Levels Patterns/21.prefab" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../SpikeNBall/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/UI/Core/Button.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../SpikeNBall/Assets/Scripts/AI/KUSALKA.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/for Unity/Spike-N-Ball/Assets/Prefabs/Levels Patterns/8.prefab" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/for Unity/Spike-N-Ball/Assets/Prefabs/Levels Patterns/12.prefab" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/for Unity/Spike-N-Ball/Assets/Prefabs/Levels Patterns/18.prefab" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
@@ -62,7 +56,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.general" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
@@ -70,7 +64,6 @@
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
       <option name="pid" />
-      <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
       </option>
@@ -80,7 +73,6 @@
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
       <option name="pid" />
-      <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
       </option>
@@ -101,7 +93,23 @@
       <workItem from="1635609513752" duration="627000" />
       <workItem from="1635708747202" duration="2430000" />
       <workItem from="1635789562769" duration="2052000" />
+      <workItem from="1635937221663" duration="4971000" />
     </task>
+    <task id="LOCAL-00001" summary="updated gitignore. done skinpreview. changed gobackbuttonprefab.">
+      <created>1635874165085</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1635874165085</updated>
+    </task>
+    <task id="LOCAL-00002" summary="fixed doors sprites">
+      <created>1635940333093</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1635940333093</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -125,5 +133,12 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+    <MESSAGE value="updated gitignore. done skinpreview. changed gobackbuttonprefab." />
+    <MESSAGE value="fixed doors sprites" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed doors sprites" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
