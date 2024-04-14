@@ -7,6 +7,7 @@ public class PopUp : MonoBehaviour
 {
     [SerializeField] private Button _showRewardButton;
     [SerializeField] private Button _exitButton;
+    
     private Action _action;
 
     private void Awake()

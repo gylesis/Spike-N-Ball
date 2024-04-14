@@ -78,6 +78,7 @@ public class FreeReward : MonoBehaviour
     private void OpenPopUp()
     {
         _rewardPopUp.gameObject.SetActive(true);
+        
         _rewardPopUp.OnAdClose((() =>
         {
             Money.Instance.money += 200;
@@ -101,6 +102,8 @@ public class FreeReward : MonoBehaviour
     private void OnDestroy()
     {
         Save();
+        
+        _openPopUpButton.onClick.RemoveListener(OpenPopUp);
     }
 
     private void Save()

@@ -7,7 +7,9 @@
             public static string Banner = "ca-app-pub-8047170368218314/2646966878";
             public static string Interstetial = "ca-app-pub-8047170368218314/8989170442";
             public static string Reward = "ca-app-pub-8047170368218314/4858353747";
-            public static string TestAd = "ca-app-pub-3940256099942544/5224354917";
+            
+            public static string TestInterstetialAd = "ca-app-pub-3940256099942544/1033173712";
+            public static string TestRewardedAd = "ca-app-pub-3940256099942544/5224354917";
         }
         
     }
